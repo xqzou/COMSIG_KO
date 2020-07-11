@@ -1,0 +1,16 @@
+indelsubtype	indeltype	type
+Complex	Complex	Complex
+[->1]Other	[>1]Other	Del
+[->1]Rep	[>1]Rep	Del
+[-C]Rep<5	[C]Rep<5	Del
+[-C]Rep>=5	[C]Rep>=5	Del
+[-T]Rep<5	[T]Rep<5	Del
+[-T]Rep>=5	[T]Rep>=5	Del
+[-]Mh	Mh	Del
+[+>1]Other	[>1]Other	Ins
+[+>1]Rep	[>1]Rep	Ins
+[+C]Rep<5	[C]Rep<5	Ins
+[+C]Rep>=5	[C]Rep>=5	Ins
+[+T]Rep<5	[T]Rep<5	Ins
+[+T]Rep>=5	[T]Rep>=5	Ins
+[+]Mh	Mh	Ins

@@ -1,0 +1,174 @@
+Sample	Ko_gene	Subpathway_KO	Doublings	Clonality
+MSK0.106_s1	OGG1	BER	12	Clonal
+MSK0.106_s2	OGG1	BER	12	Clonal
+MSK0.25_s1	OGG1	BER	36	Clonal
+MSK0.25_s2	OGG1	BER	36	Polyclonal
+MSK0.161_s1	POLB	BER	12	Clonal
+MSK0.161_s2	POLB	BER	12	Clonal
+MSK0.162_s1	POLB	BER	12	Clonal
+MSK0.162_s2	POLB	BER	12	Clonal
+MSK0.135_s1	TDG	BER	12	Polyclonal
+MSK0.135_s2	TDG	BER	12	Clonal
+MSK0.135_s3	TDG	BER	12	Clonal
+MSK0.135_s4	TDG	BER	12	Clonal
+MSK0.6_s3	UNG	BER	12	Clonal
+MSK0.6_s4	UNG	BER	24	Clonal
+MSK0.6_s5	UNG	BER	36	Clonal
+MSK0.6_s6	UNG	BER	36	Clonal
+MSK0.128_s1	PARP1	BER_DSB repair_NER	12	Clonal
+MSK0.128_s2	PARP1	BER_DSB repair_NER	12	Clonal
+MSK0.18_s2	PARP1	BER_DSB repair_NER	36	Clonal
+MSK0.137_s1	PARP2	BER_DSB repair_NER	12	Clonal
+MSK0.137_s2	PARP2	BER_DSB repair_NER	12	Clonal
+MSK0.96_s1	PARP2	BER_DSB repair_NER	12	Clonal
+MSK0.96_s2	PARP2	BER_DSB repair_NER	12	Polyclonal
+MSK0.126_s1	MDC1	Checkpoint_DSB repair	12	Polyclonal
+MSK0.126_s2	MDC1	Checkpoint_DSB repair	12	Polyclonal
+MSK0.126_s3	MDC1	Checkpoint_DSB repair	12	Clonal
+MSK0.126_s4	MDC1	Checkpoint_DSB repair	12	Clonal
+MSK0.116_s1	RNF168	Checkpoint_DSB repair	12	Clonal
+MSK0.116_s2	RNF168	Checkpoint_DSB repair	12	Clonal
+MSK0.14_s1	RNF168	Checkpoint_DSB repair	36	Clonal
+MSK0.14_s2	RNF168	Checkpoint_DSB repair	36	Clonal
+MSK0.108_s1	RNF8	Checkpoint_DSB repair	12	Polyclonal
+MSK0.108_s2	RNF8	Checkpoint_DSB repair	12	Clonal
+MSK0.12_s1	RNF8	Checkpoint_DSB repair	36	Clonal
+MSK0.12_s2	RNF8	Checkpoint_DSB repair	36	Clonal
+MSK0.69_s1	TP53	Checkpoint_DSB repair	12	Polyclonal
+MSK0.69_s2	TP53	Checkpoint_DSB repair	12	Polyclonal
+MSK0.70_s2	TP53	Checkpoint_DSB repair	12	Polyclonal
+MSK0.148_s1	ATM	Checkpoint_DSB repair_DSB repair pathway choice	12	Clonal
+MSK0.148_s2	ATM	Checkpoint_DSB repair_DSB repair pathway choice	12	Clonal
+MSK0.16_s1	ATM	Checkpoint_DSB repair_DSB repair pathway choice	36	Polyclonal
+MSK0.16_s2	ATM	Checkpoint_DSB repair_DSB repair pathway choice	36	Clonal
+MSK0.62_s3	NBN	Checkpoint_DSB repair_DSB repair pathway choice	12	Clonal
+MSK0.62_s4	NBN	Checkpoint_DSB repair_DSB repair pathway choice	12	Clonal
+MSK0.24_s1	TP53BP1	Checkpoint_DSB repair_DSB repair pathway choice	36	Clonal
+MSK0.24_s2	TP53BP1	Checkpoint_DSB repair_DSB repair pathway choice	36	Clonal
+MSK0.94_s1	TP53BP1	Checkpoint_DSB repair_DSB repair pathway choice	12	Clonal
+MSK0.94_s2	TP53BP1	Checkpoint_DSB repair_DSB repair pathway choice	12	Clonal
+MSK0.2_s3	ATP2B4	Control	12	Clonal
+MSK0.2_s4	ATP2B4	Control	24	Polyclonal
+MSK0.2_s5	ATP2B4	Control	36	Clonal
+MSK0.2_s7	ATP2B4	Control	36	Polyclonal
+MSK0.5_s4	ATP2B4	Control	12	Clonal
+MSK0.5_s5	ATP2B4	Control	24	Clonal
+MSK0.5_s6	ATP2B4	Control	36	Clonal
+MSK0.5_s8	ATP2B4	Control	36	Clonal
+MSK0.47_s2	POLE3	DNA replication	12	Clonal
+MSK0.47_s4	POLE3	DNA replication	12	Clonal
+MSK0.48_s2	POLE3	DNA replication	12	Clonal
+MSK0.48_s4	POLE3	DNA replication	12	Clonal
+MSK0.138_s1	POLE4	DNA replication	12	Clonal
+MSK0.138_s2	POLE4	DNA replication	12	Clonal
+MSK0.67_s1	POLE4	DNA replication	12	Polyclonal
+MSK0.67_s2	POLE4	DNA replication	12	Clonal
+MSK0.13_s1	PIAS1	DSB repair pathway choice_HR and HR regulation	36	Clonal
+MSK0.13_s2	PIAS1	DSB repair pathway choice_HR and HR regulation	36	Clonal
+MSK0.142_s1	PIAS1	DSB repair pathway choice_HR and HR regulation	12	Clonal
+MSK0.142_s2	PIAS1	DSB repair pathway choice_HR and HR regulation	12	Clonal
+MSK0.134_s1	PIAS4	DSB repair pathway choice_HR and HR regulation	12	Clonal
+MSK0.134_s2	PIAS4	DSB repair pathway choice_HR and HR regulation	12	Clonal
+MSK0.23_s1	PIAS4	DSB repair pathway choice_HR and HR regulation	36	Clonal
+MSK0.23_s2	PIAS4	DSB repair pathway choice_HR and HR regulation	36	Clonal
+MSK0.136_s1	C1orf86	FA and ICL repair	12	Clonal
+MSK0.136_s2	C1orf86	FA and ICL repair	12	Clonal
+MSK0.139_s1	C1orf86	FA and ICL repair	12	Clonal
+MSK0.139_s2	C1orf86	FA and ICL repair	12	Clonal
+MSK0.41_s2	DCLRE1A	FA and ICL repair	12	Clonal
+MSK0.41_s4	DCLRE1A	FA and ICL repair	12	Clonal
+MSK0.42_s2	DCLRE1A	FA and ICL repair	12	Clonal
+MSK0.42_s4	DCLRE1A	FA and ICL repair	12	Clonal
+MSK0.122_s1	FAN1	FA and ICL repair	12	Clonal
+MSK0.122_s2	FAN1	FA and ICL repair	12	Clonal
+MSK0.19_s1	FAN1	FA and ICL repair	36	Clonal
+MSK0.19_s2	FAN1	FA and ICL repair	36	Clonal
+MSK0.10_s1	FANCM	FA and ICL repair	36	Polyclonal
+MSK0.10_s2	FANCM	FA and ICL repair	36	Clonal
+MSK0.140_s1	FANCM	FA and ICL repair	12	Clonal
+MSK0.140_s2	FANCM	FA and ICL repair	12	Clonal
+MSK0.45_s2	PIF1	Helicases	12	Clonal
+MSK0.45_s4	PIF1	Helicases	12	Clonal
+MSK0.46_s2	PIF1	Helicases	12	Clonal
+MSK0.46_s4	PIF1	Helicases	12	Clonal
+MSK0.145_s1	SETX	Helicases	12	Polyclonal
+MSK0.145_s2	SETX	Helicases	12	Clonal
+MSK0.165_s1	SETX	Helicases	12	Clonal
+MSK0.165_s2	SETX	Helicases	12	Clonal
+MSK0.154_s1	RECQL5	Helicases_HR and HR regulation	12	Clonal
+MSK0.154_s2	RECQL5	Helicases_HR and HR regulation	12	Clonal
+MSK0.21_s2	RECQL5	Helicases_HR and HR regulation	36	Clonal
+MSK0.21_s3	RECQL5	Helicases_HR and HR regulation	36	Clonal
+MSK0.55_s2	WRN	Helicases_HR and HR regulation	12	Clonal
+MSK0.55_s4	WRN	Helicases_HR and HR regulation	12	Clonal
+MSK0.56_s2	WRN	Helicases_HR and HR regulation	12	Clonal
+MSK0.56_s4	WRN	Helicases_HR and HR regulation	12	Clonal
+MSK0.71_s2	EXO1	HR and HR regulation	12	Clonal
+MSK0.71_s3	EXO1	HR and HR regulation	12	Clonal
+MSK0.71_s4	EXO1	HR and HR regulation	12	Clonal
+MSK0.107_s1	POLN	HR and HR regulation_TLS	12	Clonal
+MSK0.107_s2	POLN	HR and HR regulation_TLS	12	Clonal
+MSK0.28_s1	POLN	HR and HR regulation_TLS	36	Clonal
+MSK0.28_s2	POLN	HR and HR regulation_TLS	36	Clonal
+MSK0.172_s1	MLH1	MMR	12	Clonal
+MSK0.172_s2	MLH1	MMR	12	Clonal
+MSK0.173_s1	MLH1	MMR	12	Clonal
+MSK0.173_s2	MLH1	MMR	12	Clonal
+MSK0.120_s1	MSH2	MMR	12	Clonal
+MSK0.120_s2	MSH2	MMR	12	Clonal
+MSK0.120_s3	MSH2	MMR	12	Polyclonal
+MSK0.3_s4	MSH6	MMR	12	Clonal
+MSK0.3_s5	MSH6	MMR	24	Clonal
+MSK0.3_s6	MSH6	MMR	36	Clonal
+MSK0.3_s8	MSH6	MMR	36	Clonal
+MSK0.4_s2	MSH6	MMR	12	Clonal
+MSK0.4_s3	MSH6	MMR	24	Clonal
+MSK0.4_s4	MSH6	MMR	36	Clonal
+MSK0.4_s7	MSH6	MMR	36	Clonal
+MSK0.123_s1	PMS1	MMR	12	Clonal
+MSK0.123_s2	PMS1	MMR	12	Clonal
+MSK0.130_s1	PMS1	MMR	12	Clonal
+MSK0.130_s2	PMS1	MMR	12	Clonal
+MSK0.170_s1	PMS2	MMR	12	Clonal
+MSK0.170_s2	PMS2	MMR	12	Polyclonal
+MSK0.171_s1	PMS2	MMR	12	Clonal
+MSK0.171_s2	PMS2	MMR	12	Polyclonal
+MSK0.113_s1	C9orf142	NHEJ and MMEJ	12	Clonal
+MSK0.113_s2	C9orf142	NHEJ and MMEJ	12	Clonal
+MSK0.129_s1	C9orf142	NHEJ and MMEJ	12	Clonal
+MSK0.129_s2	C9orf142	NHEJ and MMEJ	12	Clonal
+MSK0.65_s1	NHEJ1	NHEJ and MMEJ	12	Clonal
+MSK0.65_s2	NHEJ1	NHEJ and MMEJ	12	Clonal
+MSK0.9_s1	NHEJ1	NHEJ and MMEJ	12	Clonal
+MSK0.9_s2	NHEJ1	NHEJ and MMEJ	12	Clonal
+MSK0.49_s2	POLM	NHEJ and MMEJ	12	Polyclonal
+MSK0.49_s4	POLM	NHEJ and MMEJ	12	Polyclonal
+MSK0.50_s2	POLM	NHEJ and MMEJ	12	Clonal
+MSK0.50_s4	POLM	NHEJ and MMEJ	12	Polyclonal
+MSK0.51_s2	POLQ	NHEJ and MMEJ	12	Clonal
+MSK0.51_s4	POLQ	NHEJ and MMEJ	12	Clonal
+MSK0.82_s1	POLQ	NHEJ and MMEJ	12	Clonal
+MSK0.82_s2	POLQ	NHEJ and MMEJ	12	Clonal
+MSK0.26_s2	PRKDC	NHEJ and MMEJ	12	Clonal
+MSK0.26_s3	PRKDC	NHEJ and MMEJ	12	Clonal
+MSK0.26_s4	PRKDC	NHEJ and MMEJ	12	Clonal
+MSK0.77_s1	XRCC4	NHEJ and MMEJ	12	Clonal
+MSK0.77_s2	XRCC4	NHEJ and MMEJ	12	Clonal
+MSK0.78_s1	XRCC4	NHEJ and MMEJ	12	Clonal
+MSK0.78_s2	XRCC4	NHEJ and MMEJ	12	Clonal
+MSK0.101_s1	POLI	TLS	12	Clonal
+MSK0.101_s2	POLI	TLS	12	Polyclonal
+MSK0.104_s1	POLI	TLS	12	Clonal
+MSK0.104_s2	POLI	TLS	12	Clonal
+MSK0.133_s1	PRIMPOL	TLS	12	Clonal
+MSK0.133_s2	PRIMPOL	TLS	12	Polyclonal
+MSK0.143_s1	PRIMPOL	TLS	12	Clonal
+MSK0.143_s2	PRIMPOL	TLS	12	Clonal
+MSK0.83_s1	RAD18	TLS	12	Polyclonal
+MSK0.83_s2	RAD18	TLS	12	Clonal
+MSK0.95_s1	RAD18	TLS	12	Clonal
+MSK0.95_s2	RAD18	TLS	12	Clonal
+MSK0.52_s1	REV1	TLS	12	Polyclonal
+MSK0.52_s2	REV1	TLS	12	Clonal
+MSK0.52_s3	REV1	TLS	12	Polyclonal
+MSK0.52_s4	REV1	TLS	12	Clonal

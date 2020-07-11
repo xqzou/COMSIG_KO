@@ -1,0 +1,174 @@
+Sample	Ko_gene	Protein_KO	Subpathway_KO	Doublings	Clonality	sub_num	indel_num	Seq.Comp	Seq.X	Phys.X
+MSK0.106_s1	OGG1	8-Oxoguanine glycosylase	BER	12	Clonal	451	7	Y	16.55749243	42.97353723
+MSK0.106_s2	OGG1	8-Oxoguanine glycosylase	BER	12	Clonal	434	5	Y	18.84662014	48.13426773
+MSK0.25_s1	OGG1	8-Oxoguanine glycosylase	BER	36	Clonal	717	22	Y	34.18708517	88.76930249
+MSK0.25_s2	OGG1	8-Oxoguanine glycosylase	BER	36	Polyclonal	865	7	Y	31.23126147	80.40752512
+MSK0.161_s1	POLB	DNA polymerase beta	BER	12	Clonal	250	12	Y	18.54105808	44.64929438
+MSK0.161_s2	POLB	DNA polymerase beta	BER	12	Clonal	268	18	Y	18.00532054	43.98863539
+MSK0.162_s1	POLB	DNA polymerase beta	BER	12	Clonal	315	11	Y	18.62889852	44.98526491
+MSK0.162_s2	POLB	DNA polymerase beta	BER	12	Clonal	216	14	Y	17.4074803	42.62427044
+MSK0.135_s1	TDG	Thymine-DNA glycosylase	BER	12	Polyclonal	365	5	Y	19.77454485	50.49114972
+MSK0.135_s2	TDG	Thymine-DNA glycosylase	BER	12	Clonal	275	5	Y	19.61429425	49.94897095
+MSK0.135_s3	TDG	Thymine-DNA glycosylase	BER	12	Clonal	249	8	Y	16.91035341	44.05616042
+MSK0.135_s4	TDG	Thymine-DNA glycosylase	BER	12	Clonal	200	11	Y	18.93868334	47.37733678
+MSK0.6_s3	UNG	Uracil-DNA glycosylase	BER	12	Clonal	263	9	Y	34.53159611	75.11307933
+MSK0.6_s4	UNG	Uracil-DNA glycosylase	BER	24	Clonal	282	7	Y	35.40693009	75.51161547
+MSK0.6_s5	UNG	Uracil-DNA glycosylase	BER	36	Clonal	361	9	Y	32.25603372	69.18225155
+MSK0.6_s6	UNG	Uracil-DNA glycosylase	BER	36	Clonal	389	17	Y	34.89950417	73.91071702
+MSK0.128_s1	PARP1	Poly [ADP-ribose] polymerase 1	BER/DSB repair/NER	12	Clonal	331	13	Y	19.43241891	49.75265382
+MSK0.128_s2	PARP1	Poly [ADP-ribose] polymerase 1	BER/DSB repair/NER	12	Clonal	212	18	Y	19.81732897	50.63879644
+MSK0.18_s2	PARP1	Poly [ADP-ribose] polymerase 1	BER/DSB repair/NER	36	Clonal	487	46	Y	34.01499964	88.28835836
+MSK0.137_s1	PARP2	Poly [ADP-ribose] polymerase 2	BER/DSB repair/NER	12	Clonal	185	12	Y	16.62888258	43.95020895
+MSK0.137_s2	PARP2	Poly [ADP-ribose] polymerase 2	BER/DSB repair/NER	12	Clonal	202	10	Y	21.01426982	53.48864398
+MSK0.96_s1	PARP2	Poly [ADP-ribose] polymerase 2	BER/DSB repair/NER	12	Clonal	172	9	Y	16.97127218	44.2247154
+MSK0.96_s2	PARP2	Poly [ADP-ribose] polymerase 2	BER/DSB repair/NER	12	Polyclonal	217	7	Y	19.57840918	50.69593607
+MSK0.126_s1	MDC1	Mediator of DNA damage checkpoint protein 1	Checkpoint/DSB repair	12	Polyclonal	161	4	Y	18.57148493	48.07479645
+MSK0.126_s2	MDC1	Mediator of DNA damage checkpoint protein 1	Checkpoint/DSB repair	12	Polyclonal	177	2	Y	19.08455752	48.94617764
+MSK0.126_s3	MDC1	Mediator of DNA damage checkpoint protein 1	Checkpoint/DSB repair	12	Clonal	191	8	Y	18.38787811	46.29076981
+MSK0.126_s4	MDC1	Mediator of DNA damage checkpoint protein 1	Checkpoint/DSB repair	12	Clonal	168	7	Y	17.39137369	45.0815329
+MSK0.116_s1	RNF168	Ring finger protein 168	Checkpoint/DSB repair	12	Clonal	739	12	Y	17.22706195	43.55759004
+MSK0.116_s2	RNF168	Ring finger protein 168	Checkpoint/DSB repair	12	Clonal	775	17	Y	21.91065072	53.02348174
+MSK0.14_s1	RNF168	Ring finger protein 168	Checkpoint/DSB repair	36	Clonal	272	10	Y	33.58719165	91.21840216
+MSK0.14_s2	RNF168	Ring finger protein 168	Checkpoint/DSB repair	36	Clonal	271	8	Y	35.37939496	91.78250971
+MSK0.108_s1	RNF8	Ring finger protein 8	Checkpoint/DSB repair	12	Polyclonal	251	5	Y	19.47820379	50.35565635
+MSK0.108_s2	RNF8	Ring finger protein 8	Checkpoint/DSB repair	12	Clonal	231	5	Y	17.72417317	45.57059542
+MSK0.12_s1	RNF8	Ring finger protein 8	Checkpoint/DSB repair	36	Clonal	145	7	Y	34.76802186	91.63838738
+MSK0.12_s2	RNF8	Ring finger protein 8	Checkpoint/DSB repair	36	Clonal	111	3	Y	31.73215059	78.67179201
+MSK0.69_s1	TP53	Tumor protein p53	Checkpoint/DSB repair	12	Polyclonal	278	11	Y	36.64157829	90.0883166
+MSK0.69_s2	TP53	Tumor protein p53	Checkpoint/DSB repair	12	Polyclonal	219	8	Y	33.47529458	83.63374456
+MSK0.70_s2	TP53	Tumor protein p53	Checkpoint/DSB repair	12	Polyclonal	365	18	Y	38.31964394	94.61061114
+MSK0.148_s1	ATM	ATM serine/threonine kinase	Checkpoint/DSB repair/DSB repair pathway choice	12	Clonal	277	14	Y	18.47426232	41.15408647
+MSK0.148_s2	ATM	ATM serine/threonine kinase	Checkpoint/DSB repair/DSB repair pathway choice	12	Clonal	255	9	Y	18.05096413	40.29441965
+MSK0.16_s1	ATM	ATM serine/threonine kinase	Checkpoint/DSB repair/DSB repair pathway choice	36	Polyclonal	359	6	Y	35.2519449	91.04390394
+MSK0.16_s2	ATM	ATM serine/threonine kinase	Checkpoint/DSB repair/DSB repair pathway choice	36	Clonal	271	19	Y	32.02218261	81.29054604
+MSK0.62_s3	NBN	Nibrin	Checkpoint/DSB repair/DSB repair pathway choice	12	Clonal	135	6	Y	25.24862408	64.71313501
+MSK0.62_s4	NBN	Nibrin	Checkpoint/DSB repair/DSB repair pathway choice	12	Clonal	178	9	Y	21.5127007	55.74834556
+MSK0.24_s1	TP53BP1	Tumor suppressor p53-binding protein 1	Checkpoint/DSB repair/DSB repair pathway choice	36	Clonal	262	9	Y	34.7086888	90.58936249
+MSK0.24_s2	TP53BP1	Tumor suppressor p53-binding protein 1	Checkpoint/DSB repair/DSB repair pathway choice	36	Clonal	310	8	Y	34.13361733	88.43887035
+MSK0.94_s1	TP53BP1	Tumor suppressor p53-binding protein 1	Checkpoint/DSB repair/DSB repair pathway choice	12	Clonal	163	3	Y	18.88653985	47.45541164
+MSK0.94_s2	TP53BP1	Tumor suppressor p53-binding protein 1	Checkpoint/DSB repair/DSB repair pathway choice	12	Clonal	169	6	Y	17.51956025	45.00639973
+MSK0.2_s3	ATP2B4	Plasma membrane calcium-transporting ATPase 4	Control	12	Clonal	161	7	Y	32.39028593	70.76813993
+MSK0.2_s4	ATP2B4	Plasma membrane calcium-transporting ATPase 4	Control	24	Polyclonal	359	16	Y	31.89474638	68.19506393
+MSK0.2_s5	ATP2B4	Plasma membrane calcium-transporting ATPase 4	Control	36	Clonal	263	15	Y	32.36193503	69.13934277
+MSK0.2_s7	ATP2B4	Plasma membrane calcium-transporting ATPase 4	Control	36	Polyclonal	359	14	Y	32.92726499	70.89722942
+MSK0.5_s4	ATP2B4	Plasma membrane calcium-transporting ATPase 4	Control	12	Clonal	146	9	Y	34.04523887	72.90853475
+MSK0.5_s5	ATP2B4	Plasma membrane calcium-transporting ATPase 4	Control	24	Clonal	238	8	Y	28.72821189	61.0560421
+MSK0.5_s6	ATP2B4	Plasma membrane calcium-transporting ATPase 4	Control	36	Clonal	256	11	Y	33.41763212	71.95360089
+MSK0.5_s8	ATP2B4	Plasma membrane calcium-transporting ATPase 4	Control	36	Clonal	306	14	Y	34.51341799	73.95195956
+MSK0.47_s2	POLE3	DNA polymerase epsilon subunit 3	DNA replication	12	Clonal	136	10	Y	34.33292718	86.19685222
+MSK0.47_s4	POLE3	DNA polymerase epsilon subunit 3	DNA replication	12	Clonal	162	12	Y	35.2914057	87.02556455
+MSK0.48_s2	POLE3	DNA polymerase epsilon subunit 3	DNA replication	12	Clonal	128	8	Y	32.42537083	80.53882477
+MSK0.48_s4	POLE3	DNA polymerase epsilon subunit 3	DNA replication	12	Clonal	140	9	Y	33.93836187	85.00698107
+MSK0.138_s1	POLE4	DNA polymerase epsilon subunit 4	DNA replication	12	Clonal	192	9	Y	21.13923255	53.91419884
+MSK0.138_s2	POLE4	DNA polymerase epsilon subunit 4	DNA replication	12	Clonal	158	7	Y	18.66761191	46.66321817
+MSK0.67_s1	POLE4	DNA polymerase epsilon subunit 4	DNA replication	12	Polyclonal	218	7	Y	16.51304897	42.51023173
+MSK0.67_s2	POLE4	DNA polymerase epsilon subunit 4	DNA replication	12	Clonal	192	8	Y	16.47763403	41.14421517
+MSK0.13_s1	PIAS1	Protein inhibitor of activated STAT 1	DSB repair pathway choice/HR and HR regulation	36	Clonal	126	11	Y	31.59203726	81.46934118
+MSK0.13_s2	PIAS1	Protein inhibitor of activated STAT 1	DSB repair pathway choice/HR and HR regulation	36	Clonal	130	11	Y	31.8294818	79.66118057
+MSK0.142_s1	PIAS1	Protein inhibitor of activated STAT 1	DSB repair pathway choice/HR and HR regulation	12	Clonal	163	6	Y	17.02835507	39.84800247
+MSK0.142_s2	PIAS1	Protein inhibitor of activated STAT 1	DSB repair pathway choice/HR and HR regulation	12	Clonal	163	5	Y	16.33883525	38.40950491
+MSK0.134_s1	PIAS4	protein inhibitor of activated STAT protein gamma	DSB repair pathway choice/HR and HR regulation	12	Clonal	151	5	Y	18.94421827	48.59614974
+MSK0.134_s2	PIAS4	protein inhibitor of activated STAT protein gamma	DSB repair pathway choice/HR and HR regulation	12	Clonal	167	8	Y	20.04514517	51.46063742
+MSK0.23_s1	PIAS4	protein inhibitor of activated STAT protein gamma	DSB repair pathway choice/HR and HR regulation	36	Clonal	243	13	Y	34.27859013	89.03677192
+MSK0.23_s2	PIAS4	protein inhibitor of activated STAT protein gamma	DSB repair pathway choice/HR and HR regulation	36	Clonal	230	13	Y	34.46008679	89.07678051
+MSK0.136_s1	C1orf86	Fanconi anemia core complex-associated protein 20	FA and ICL repair	12	Clonal	181	7	Y	19.28936846	49.43688163
+MSK0.136_s2	C1orf86	Fanconi anemia core complex-associated protein 20	FA and ICL repair	12	Clonal	179	8	Y	21.21755399	53.45954781
+MSK0.139_s1	C1orf86	Fanconi anemia core complex-associated protein 20	FA and ICL repair	12	Clonal	182	12	Y	19.95994909	50.43660093
+MSK0.139_s2	C1orf86	Fanconi anemia core complex-associated protein 20	FA and ICL repair	12	Clonal	203	8	Y	20.04931456	50.40016324
+MSK0.41_s2	DCLRE1A	DNA cross-link repair 1A	FA and ICL repair	12	Clonal	159	5	Y	19.2456812	47.35241461
+MSK0.41_s4	DCLRE1A	DNA cross-link repair 1A	FA and ICL repair	12	Clonal	161	7	Y	18.30729324	45.18012801
+MSK0.42_s2	DCLRE1A	DNA cross-link repair 1A	FA and ICL repair	12	Clonal	168	0	Y	16.25568336	40.785775
+MSK0.42_s4	DCLRE1A	DNA cross-link repair 1A	FA and ICL repair	12	Clonal	139	4	Y	16.24538052	40.59845373
+MSK0.122_s1	FAN1	Fanconi-associated nuclease 1	FA and ICL repair	12	Clonal	204	9	Y	19.30390084	48.60774378
+MSK0.122_s2	FAN1	Fanconi-associated nuclease 1	FA and ICL repair	12	Clonal	194	6	Y	17.55480292	45.61635384
+MSK0.19_s1	FAN1	Fanconi-associated nuclease 1	FA and ICL repair	36	Clonal	250	13	Y	35.39104077	92.18115863
+MSK0.19_s2	FAN1	Fanconi-associated nuclease 1	FA and ICL repair	36	Clonal	248	13	Y	34.18910503	88.54229644
+MSK0.10_s1	FANCM	"Fanconi anemia, complementation group M"	FA and ICL repair	36	Polyclonal	247	5	Y	34.38181345	93.4809744
+MSK0.10_s2	FANCM	"Fanconi anemia, complementation group M"	FA and ICL repair	36	Clonal	144	12	Y	32.70180318	80.7996811
+MSK0.140_s1	FANCM	"Fanconi anemia, complementation group M"	FA and ICL repair	12	Clonal	198	4	Y	18.1207495	42.27040296
+MSK0.140_s2	FANCM	"Fanconi anemia, complementation group M"	FA and ICL repair	12	Clonal	197	9	Y	17.55663773	41.71870816
+MSK0.45_s2	PIF1	PIF1 5-To-3 DNA Helicase	Helicases	12	Clonal	164	11	Y	36.80550114	90.36632147
+MSK0.45_s4	PIF1	PIF1 5-To-3 DNA Helicase	Helicases	12	Clonal	183	19	Y	34.73377688	86.03471632
+MSK0.46_s2	PIF1	PIF1 5-To-3 DNA Helicase	Helicases	12	Clonal	181	12	Y	32.60209931	81.09802981
+MSK0.46_s4	PIF1	PIF1 5-To-3 DNA Helicase	Helicases	12	Clonal	183	9	Y	36.9017387	91.59915929
+MSK0.145_s1	SETX	Probable helicase senataxin	Helicases	12	Polyclonal	197	10	Y	20.69537072	45.76829385
+MSK0.145_s2	SETX	Probable helicase senataxin	Helicases	12	Clonal	184	10	Y	22.21179723	49.15137278
+MSK0.165_s1	SETX	Probable helicase senataxin	Helicases	12	Clonal	171	6	Y	17.85730375	44.50372275
+MSK0.165_s2	SETX	Probable helicase senataxin	Helicases	12	Clonal	158	8	Y	18.84052306	47.58991529
+MSK0.154_s1	RECQL5	ATP-dependent DNA helicase Q5	Helicases/HR and HR regulation	12	Clonal	162	8	Y	18.37678564	42.33808851
+MSK0.154_s2	RECQL5	ATP-dependent DNA helicase Q5	Helicases/HR and HR regulation	12	Clonal	153	4	Y	17.27777449	39.7987259
+MSK0.21_s2	RECQL5	ATP-dependent DNA helicase Q5	Helicases/HR and HR regulation	36	Clonal	191	12	Y	32.62786285	83.50546357
+MSK0.21_s3	RECQL5	ATP-dependent DNA helicase Q5	Helicases/HR and HR regulation	36	Clonal	220	12	Y	33.16943611	85.05880217
+MSK0.55_s2	WRN	Werner syndrome ATP-dependent helicase	Helicases/HR and HR regulation	12	Clonal	147	9	Y	31.22578589	78.74903668
+MSK0.55_s4	WRN	Werner syndrome ATP-dependent helicase	Helicases/HR and HR regulation	12	Clonal	124	12	Y	38.31172261	96.74005782
+MSK0.56_s2	WRN	Werner syndrome ATP-dependent helicase	Helicases/HR and HR regulation	12	Clonal	199	10	Y	36.48596804	90.28926197
+MSK0.56_s4	WRN	Werner syndrome ATP-dependent helicase	Helicases/HR and HR regulation	12	Clonal	193	18	Y	34.2962403	85.39391963
+MSK0.71_s2	EXO1	Exonuclease 1	HR and HR regulation	12	Clonal	1646	29	Y	20.34018871	53.27788668
+MSK0.71_s3	EXO1	Exonuclease 1	HR and HR regulation	12	Clonal	1095	29	Y	24.03165674	61.74965371
+MSK0.71_s4	EXO1	Exonuclease 1	HR and HR regulation	12	Clonal	1268	18	Y	18.24457268	47.60879496
+MSK0.107_s1	POLN	DNA polymerase nu	HR and HR regulation/TLS	12	Clonal	168	11	Y	17.11203968	43.96446885
+MSK0.107_s2	POLN	DNA polymerase nu	HR and HR regulation/TLS	12	Clonal	198	14	Y	18.14015627	46.75769497
+MSK0.28_s1	POLN	DNA polymerase nu	HR and HR regulation/TLS	36	Clonal	258	12	Y	34.03443994	88.31314341
+MSK0.28_s2	POLN	DNA polymerase nu	HR and HR regulation/TLS	36	Clonal	254	12	Y	33.62857478	88.36077971
+MSK0.172_s1	MLH1	MutL homolog 1	MMR	12	Clonal	2051	1530	Y	16.7189266	46.65111855
+MSK0.172_s2	MLH1	MutL homolog 1	MMR	12	Clonal	1937	1935	Y	18.3036111	46.99744222
+MSK0.173_s1	MLH1	MutL homolog 1	MMR	12	Clonal	1803	1912	Y	20.57694446	53.86229113
+MSK0.173_s2	MLH1	MutL homolog 1	MMR	12	Clonal	1751	1648	Y	18.66161035	49.86977452
+MSK0.120_s1	MSH2	MutS protein homolog 2	MMR	12	Clonal	2316	2122	Y	19.69352444	50.39022285
+MSK0.120_s2	MSH2	MutS protein homolog 2	MMR	12	Clonal	2360	2106	Y	19.89367184	51.1631821
+MSK0.120_s3	MSH2	MutS protein homolog 2	MMR	12	Polyclonal	2038	877	Y	15.97041303	37.09129195
+MSK0.3_s4	MSH6	MutS protein homolog 6	MMR	12	Clonal	1790	637	Y	34.15737552	73.00513871
+MSK0.3_s5	MSH6	MutS protein homolog 6	MMR	24	Clonal	2443	813	Y	34.20496789	74.15561118
+MSK0.3_s6	MSH6	MutS protein homolog 6	MMR	36	Clonal	2701	947	Y	31.37183774	66.82851291
+MSK0.3_s8	MSH6	MutS protein homolog 6	MMR	36	Clonal	2688	978	Y	30.22153551	65.72522962
+MSK0.4_s2	MSH6	MutS protein homolog 6	MMR	12	Clonal	1503	561	Y	33.67329927	72.47725834
+MSK0.4_s3	MSH6	MutS protein homolog 6	MMR	24	Clonal	2198	713	Y	32.12950944	68.56200444
+MSK0.4_s4	MSH6	MutS protein homolog 6	MMR	36	Clonal	3001	1328	Y	68.93914682	148.36072
+MSK0.4_s7	MSH6	MutS protein homolog 6	MMR	36	Clonal	2503	909	Y	32.18303691	68.17137438
+MSK0.123_s1	PMS1	PMS1 protein homolog 1	MMR	12	Clonal	193	21	Y	19.75098728	49.9601423
+MSK0.123_s2	PMS1	PMS1 protein homolog 1	MMR	12	Clonal	279	27	Y	20.14272935	51.58538276
+MSK0.130_s1	PMS1	PMS1 protein homolog 1	MMR	12	Clonal	301	17	Y	18.84761748	47.49850268
+MSK0.130_s2	PMS1	PMS1 protein homolog 1	MMR	12	Clonal	362	22	Y	18.64413367	47.57742196
+MSK0.170_s1	PMS2	protein homolog 2	MMR	12	Clonal	1449	1167	Y	18.51648675	49.4324026
+MSK0.170_s2	PMS2	protein homolog 2	MMR	12	Polyclonal	1618	1048	Y	21.37193271	55.45693246
+MSK0.171_s1	PMS2	protein homolog 2	MMR	12	Clonal	1421	1261	Y	19.70436767	51.7815503
+MSK0.171_s2	PMS2	protein homolog 2	MMR	12	Polyclonal	1665	758	Y	19.68763326	52.9904707
+MSK0.113_s1	C9orf142	Non-homologous end joining factor	NHEJ and MMEJ	12	Clonal	237	10	Y	19.38148009	49.0952828
+MSK0.113_s2	C9orf142	Non-homologous end joining factor	NHEJ and MMEJ	12	Clonal	205	9	Y	19.322433	49.53330469
+MSK0.129_s1	C9orf142	Non-homologous end joining factor	NHEJ and MMEJ	12	Clonal	198	8	Y	19.83118745	51.30311001
+MSK0.129_s2	C9orf142	Non-homologous end joining factor	NHEJ and MMEJ	12	Clonal	231	8	Y	19.38308283	50.03502272
+MSK0.65_s1	NHEJ1	Non-Homologous End Joining Factor 1	NHEJ and MMEJ	12	Clonal	215	14	Y	33.59046375	84.90643182
+MSK0.65_s2	NHEJ1	Non-Homologous End Joining Factor 1	NHEJ and MMEJ	12	Clonal	258	11	Y	33.99865796	84.26672828
+MSK0.9_s1	NHEJ1	Non-Homologous End Joining Factor 1	NHEJ and MMEJ	12	Clonal	63	6	Y	36.91601306	92.06498882
+MSK0.9_s2	NHEJ1	Non-Homologous End Joining Factor 1	NHEJ and MMEJ	12	Clonal	85	4	Y	39.63036052	99.24829002
+MSK0.49_s2	POLM	DNA polymerase mu	NHEJ and MMEJ	12	Polyclonal	231	12	Y	34.04579359	87.0879327
+MSK0.49_s4	POLM	DNA polymerase mu	NHEJ and MMEJ	12	Polyclonal	267	18	Y	36.12160623	88.87994966
+MSK0.50_s2	POLM	DNA polymerase mu	NHEJ and MMEJ	12	Clonal	167	11	Y	37.28974935	93.3278477
+MSK0.50_s4	POLM	DNA polymerase mu	NHEJ and MMEJ	12	Polyclonal	149	5	Y	38.90883062	97.30296403
+MSK0.51_s2	POLQ	DNA polymerase theta	NHEJ and MMEJ	12	Clonal	195	17	Y	39.70444733	98.92001539
+MSK0.51_s4	POLQ	DNA polymerase theta	NHEJ and MMEJ	12	Clonal	179	9	Y	35.8197258	89.21622592
+MSK0.82_s1	POLQ	DNA polymerase theta	NHEJ and MMEJ	12	Clonal	143	5	Y	17.72273224	46.19899281
+MSK0.82_s2	POLQ	DNA polymerase theta	NHEJ and MMEJ	12	Clonal	137	8	Y	19.49888602	50.3513414
+MSK0.26_s2	PRKDC	"DNA-dependent protein kinase, catalytic subunit"	NHEJ and MMEJ	12	Clonal	139	9	Y	19.95219255	52.44443248
+MSK0.26_s3	PRKDC	"DNA-dependent protein kinase, catalytic subunit"	NHEJ and MMEJ	12	Clonal	180	5	Y	17.52711609	46.53823794
+MSK0.26_s4	PRKDC	"DNA-dependent protein kinase, catalytic subunit"	NHEJ and MMEJ	12	Clonal	160	4	Y	20.63436847	48.19166215
+MSK0.77_s1	XRCC4	X-ray repair cross-complementing protein 4	NHEJ and MMEJ	12	Clonal	238	11	Y	36.69053003	91.11074174
+MSK0.77_s2	XRCC4	X-ray repair cross-complementing protein 4	NHEJ and MMEJ	12	Clonal	217	15	Y	36.3171881	90.45275508
+MSK0.78_s1	XRCC4	X-ray repair cross-complementing protein 4	NHEJ and MMEJ	12	Clonal	292	17	Y	36.1428736	91.27970658
+MSK0.78_s2	XRCC4	X-ray repair cross-complementing protein 4	NHEJ and MMEJ	12	Clonal	262	9	Y	36.49962898	90.70151496
+MSK0.101_s1	POLI	DNA polymerase iota	TLS	12	Clonal	248	19	Y	18.33301014	46.72266153
+MSK0.101_s2	POLI	DNA polymerase iota	TLS	12	Polyclonal	155	4	Y	16.74713688	45.03559449
+MSK0.104_s1	POLI	DNA polymerase iota	TLS	12	Clonal	264	8	Y	19.95107669	50.88478473
+MSK0.104_s2	POLI	DNA polymerase iota	TLS	12	Clonal	241	9	Y	17.38003657	44.00641793
+MSK0.133_s1	PRIMPOL	PrimPol	TLS	12	Clonal	149	11	Y	17.91084095	46.36839484
+MSK0.133_s2	PRIMPOL	PrimPol	TLS	12	Polyclonal	108	1	Y	17.58241999	44.91996899
+MSK0.143_s1	PRIMPOL	PrimPol	TLS	12	Clonal	220	10	Y	16.67499706	38.13031108
+MSK0.143_s2	PRIMPOL	PrimPol	TLS	12	Clonal	263	10	Y	18.64386607	43.82112137
+MSK0.83_s1	RAD18	E3 ubiquitin-protein ligase RAD18	TLS	12	Polyclonal	207	2	Y	18.1192554	47.29453885
+MSK0.83_s2	RAD18	E3 ubiquitin-protein ligase RAD18	TLS	12	Clonal	189	7	Y	18.70447333	48.72100409
+MSK0.95_s1	RAD18	E3 ubiquitin-protein ligase RAD18	TLS	12	Clonal	190	10	Y	19.16408678	48.87447988
+MSK0.95_s2	RAD18	E3 ubiquitin-protein ligase RAD18	TLS	12	Clonal	188	8	Y	19.03305197	48.64529643
+MSK0.52_s1	REV1	DNA repair protein REV1	TLS	12	Polyclonal	68	1	Y	17.86685583	41.34934784
+MSK0.52_s2	REV1	DNA repair protein REV1	TLS	12	Clonal	186	14	Y	32.27150195	82.20164945
+MSK0.52_s3	REV1	DNA repair protein REV1	TLS	12	Polyclonal	122	4	Y	16.06307066	37.97423544
+MSK0.52_s4	REV1	DNA repair protein REV1	TLS	12	Clonal	176	10	Y	34.55426966	86.46875181
