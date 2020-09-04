@@ -22,9 +22,18 @@ indel.classified <- indel_classifier15(indels)
 indel.classified$Sample <- indel.classified$Genotype
 mutation_catalogue <- gen_indelmuttype_15(indel.classified)
 
+# 15 channels
+indel.classified <- indel_classifier15(indels)
+indel.classified$Sample <- indel.classified$Genotype
+mutation_catalogue <- gen_indelmuttype_15(indel.classified)
 
-ko_indels_type_4_catalouge <- read.table("Ko_gene_type_4_mmrd_channeled.txt", sep = "\t", header = T, as.is = T)
-plot_percentage_type_4_mmrd(ko_indels_type_4_catalouge, 1,26, 13, "Ko_gene_type_4_mmrd_percentage") # for figure 3
+# 45 channels
+indel.classified <- indel_classifier(indels)
+indel.classified$Sample <- indel.classified$Genotype
+mutation_catalogue <- gen_indelmuttype_MMRD(indel.classified,"Sample","indeltype_short")
+
+#ko_indels_type_4_catalouge <- read.table("Ko_gene_type_4_mmrd_channeled.txt", sep = "\t", header = T, as.is = T)
+#plot_percentage_type_4_mmrd(ko_indels_type_4_catalouge, 1,26, 13, "Ko_gene_type_4_mmrd_percentage") # for figure 3
 
 
 ##################
