@@ -1,31 +1,16 @@
 # Calculate variables for MMRDetect
 
 
-MMRDetect.compute.variables <- function(subs, indels, tissue_type,MMR_subsig96,MMR_sig_indel, tissue_subsig96){
-  
-  
-  sub_summary <- data.frame(table(subs$Sample))
-  names(sub_summary) <- c("Sample","sub_num")
-  indel_classied <- indel_classifier(indels)
-  
-  indel_classied_rep <- indel_classied[!indel_classied$indeltype_short%in%c("[-]Mh","[->1]Other","[+]Mh","[+>1]Other","Complex","[-C]Rep=1","[-T]Rep=1","[+C]Rep=0","[+T]Rep=0", "[+C]Rep=1","[+T]Rep=1"),]
-  indel_classied_rep_summary <- data.frame(table(indel_classied_rep$Sample))
-  names(indel_classied_rep_summary) <- c("Sample","RepIndel_num")
-  
-  muts_summary <- merge(sub_summary,indel_classied_rep_summary,by="Sample")
-  
-  write.table(muts_summary,paste0("muts_summary_",tissue_type,".txt"),sep = "\t", col.names = T, row.names = F, quote = F)
-  #sample_highburden <- muts_summary[muts_summary$sub_num>=190 & muts_summary$RepIndel_num>=80,"Sample"]
+
+MMRDetect.compute.subcatalogue.exposure <- function(sub_cat, tissue_type,MMR_subsig96=MMKO_subsig,tissue_subsig96){
   
   
   # Generate catalouge for subs_highburden
-  sub_catalouge <- GenCatalogue(subs,"Sample")
-  sub_catalouge <- sub_catalouge[,-2]
+  sub_catalouge <- sub_cat
+  
   
   # Step 2:  Signature fitting for subs using Andrea's tissue-specific signatures 
   
-  
-  # Compute similarity of tissue-specific signatures with MMR KO sigs
   selected_tissueSig <- tissue_subsig96[,c(1,which(sub("_[^_]+$","",names(tissue_subsig96))==tissue_type))]
   
   MMR1Sig <- c("Breast_A", "Colorectal_F", "Liver_E","Stomach_H", "Uterus_C", "Uterus_J")
@@ -87,19 +72,13 @@ MMRDetect.compute.variables <- function(subs, indels, tissue_type,MMR_subsig96,M
   write.table(a$E_median_filtered,paste0("exposure_",tissue_type,".txt"),sep = "\t",row.names = T, col.names = T, quote = F)
   
   
-  # Using tissue-specific signatures to fit, but remove the ones that have high similarity with MMR KO signatures.
-  #Sig_MMR <- selected_tissueSig[,which(names(selected_tissueSig) %in% ko_pc_cossim[ko_pc_cossim$similarity>=0.85,"CosmicSig"])]
   
   # Choose the samples that have exposure in MMR signatures
-  #Exposure <- read.table("exposure_breast741_250breastsamples.txt", sep="\t",header = T, as.is=T)
   Exposure <-a$E_median_filtered
   sample_exposure <- as.data.frame(Exposure)
   MMRsig_sample <- sample_exposure[which(rownames(sample_exposure) %in% c(tissue_MMR1Sig, tissue_MMR2Sig,"MMR2","MMR1")),]
-  #MMRsig_sample <- sample_exposure[which(rownames(sample_exposure) %in% ko_pc_cossim_MMR$CosmicSig),]
-  # MMRsig_sample <- MMRsig_sample[,which(colSums(MMRsig_sample)>0)]
   
   MMRsig_sample$AndreaSig <- rownames(MMRsig_sample)
-  #MMRsig_sample <- merge(MMRsig_sample,ko_pc_cossim_MMR_dcast[,c("CosmicSig","KO_sig")],by="CosmicSig")
   MMRsig_sample_melt <- melt(MMRsig_sample,c("AndreaSig"))
   names(MMRsig_sample_melt) <- c("AndreaSig","Sample","exposure")
   MMRsig_sample_melt_dcast <- dcast(MMRsig_sample_melt,Sample~AndreaSig,value.var="exposure")
@@ -110,16 +89,25 @@ MMRDetect.compute.variables <- function(subs, indels, tissue_type,MMR_subsig96,M
     MMRsig_sample_melt_dcast$MMR_sum <- rowSums(MMRsig_sample_melt_dcast[,-1])
     
   }
-  # MMRsig_sample_melt_dcast_realMMR <- MMRsig_sample_melt_dcast[MMRsig_sample_melt_dcast$MMR_sum>=190,]
-  #write.table(MMRsig_sample_melt_dcast,"MMRexposure_breast741_175breastsamples.txt",sep = "\t",row.names = F, col.names = T, quote = F)
+  write.table(MMRsig_sample_melt_dcast,paste0("subsig_exposure_",tissue_type,".txt"),sep = "\t",row.names = F, col.names = T, quote = F)
   
   
-  # Step 3. Measure the cosine similarity between RepDel, RepIns and RepIndel
-  # Using indel profile to discriminate MLH1/MSH2/MSH6 and PMS2 signatures 
+  return(MMRsig_sample_melt_dcast) 
+}
+MMRDetect.compute.Repindel.similarity <- function(indels, tissue_type,MMR_sig_indel=MMRKO_indelsig){
+  
+  indel_classied <- indel_classifier(indels)
+  
+  indel_classied_rep <- indel2610_classied[!indel2610_classied$indeltype_short%in%c("[-]Mh","[->1]Other","[+]Mh","[+>1]Other","Complex","[-C]Rep=1","[-T]Rep=1","[+C]Rep=0","[+T]Rep=0", "[+C]Rep=1","[+T]Rep=1"),]
+  Sample_MMR <- data.frame(table(indel_classied_rep$Sample))
+  names(Sample_MMR) <- c("Sample","RepIndel_num")
+  
+  
   cossim_allsample <- NULL
   cossim_MMR <- NULL
   cossim_sample <- NULL
-  Sample_MMR <- MMRsig_sample_melt_dcast
+  # Sample_MMR <- data.frame(table(indels$Sample))
+  #  names(Sample_MMR) <- c("Sample","indel_num")
   for(i in 2:5){
     for(j in 1:dim(Sample_MMR)[1]){
       current_sample_indel <- indel_classied[indel_classied$Sample==as.character(Sample_MMR[j,"Sample"]),]
@@ -142,18 +130,103 @@ MMRDetect.compute.variables <- function(subs, indels, tissue_type,MMR_subsig96,M
   Del_rep_mean <- ddply(cossim_allsample,c("Sample"),summarise,N=length(Sample),Del_rep_mean=mean(Del_rep),Del_rep_sd=sd(Del_rep))
   Ins_rep_mean <- ddply(cossim_allsample,c("Sample"),summarise,N=length(Sample),Ins_rep_mean=mean(Ins_rep),Ins_rep_sd=sd(Ins_rep))
   
-  Indel_rep_MMR1 <- ddply(cossim_allsample[cossim_allsample$MMRgene!="PMS2",],c("Sample"),summarise,N=length(Sample),Indel_rep_MMR1_mean=mean(Indel_rep),Indel_rep_MMR1_sd=sd(Indel_rep))
-  Indel_rep_MMR2 <- cossim_allsample[cossim_allsample$MMRgene=="PMS2",c("Sample","Indel_rep")]
-  
-  MMRsig_2 <- merge(Del_rep_mean[,-2],Ins_rep_mean[,-2],by="Sample")
-  MMRsig_2 <- merge(MMRsig_2,Indel_rep_MMR1[,-2],by="Sample")
-  MMRsig_2 <- merge(MMRsig_2,Indel_rep_MMR2,by="Sample")
-  MMRsig_2 <- merge(MMRsig_2,indel_classied_rep_summary,by="Sample")
-  names(MMRsig_2)[8]="Indel_rep_MMR2"
-  
-  MMRsig_2 <- merge(MMRsig_2,MMRsig_sample_melt_dcast,by="Sample")
+  MMRsig_2 <- merge(Del_rep_mean[,c("Sample","Del_rep_mean")],Ins_rep_mean[,c("Sample","Ins_rep_mean")],by="Sample")
+  MMRsig_2 <- merge(Sample_MMR,MMRsig_2, by="Sample")
   write.table(MMRsig_2,paste0("sample_feature_summary_",tissue_type,".txt"),sep="\t", col.names = T, row.names = F, quote = F)
   
   
   return(MMRsig_2) 
+}
+MMRDetect.compute.Repindelcatalogue.similarity <- function(indel_cat, tissue_type,MMR_sig_indel=MMRKO_indelsig){
+  
+  # Measure the cosine similarity between RepDel, RepIns and RepIndel
+  # Using indel profile to discriminate MLH1/MSH2/MSH6 and PMS2 signatures 
+  
+  cossim_allsample <- NULL
+  cossim_MMR <- NULL
+  cossim_sample <- NULL
+  
+  Sample_MMR <- data.frame("Sample"=names(indel_cat)[3:dim(indel_cat)[2]], "RepIndel_num"=colSums(indel_cat[!indel_cat$indelsubtype %in%c("[-]Mh","[->1]Other","[+]Mh","[+>1]Other","Complex","[-C]Rep=1","[-T]Rep=1","[+C]Rep=0","[+T]Rep=0", "[+C]Rep=1","[+T]Rep=1"),3:dim(indel_cat)[2]]))
+  names(Sample_MMR) <- c("Sample","RepIndel_num")
+  for(i in 2:5){
+    for(j in 1:dim(Sample_MMR)[1]){
+      current_sample_indel <- indel_cat[,c("indelsubtype", "type",Sample_MMR[j,"Sample"])]
+      
+      cossim <- Calculae_Cossim_catalogue_RepIndel(current_sample_indel,MMR_sig_indel[,c(1,i)])    
+      cossim_allsample <- rbind(cossim_allsample,cossim)
+      cossim_MMR <- c(cossim_MMR,names(MMR_sig_indel)[i])
+      cossim_sample <- c(cossim_sample,as.character(Sample_MMR[j,"Sample"]))
+      
+      
+    }
+    
+  }
+  cossim_allsample <- data.frame(cossim_allsample)
+  names(cossim_allsample) <- c("Del_rep","Ins_rep","Indel_rep")
+  cossim_allsample$Sample <- cossim_sample
+  cossim_allsample$MMRgene <- cossim_MMR
+  
+  Del_rep_mean <- ddply(cossim_allsample,c("Sample"),summarise,N=length(Sample),Del_rep_mean=mean(Del_rep),Del_rep_sd=sd(Del_rep))
+  Ins_rep_mean <- ddply(cossim_allsample,c("Sample"),summarise,N=length(Sample),Ins_rep_mean=mean(Ins_rep),Ins_rep_sd=sd(Ins_rep))
+  
+  MMRsig_2 <- merge(Del_rep_mean[,c("Sample","Del_rep_mean")],Ins_rep_mean[,c("Sample","Ins_rep_mean")],by="Sample")
+  MMRsig_2 <- merge(Sample_MMR,MMRsig_2, by="Sample")
+  
+  write.table(MMRsig_2,paste0("sample_feature_summary_",tissue_type,".txt"),sep="\t", col.names = T, row.names = F, quote = F)
+  
+  
+  
+  return(MMRsig_2) 
+}
+MMRDetect.compute.subcatalogue.similarity <- function(mcat,scat=MMKO_subsig){
+  mut_sig <- merge(scat,mcat,by="MutationType")
+  sig_cat <- mut_sig[,2:dim(scat)[2]]
+  mut_cat <- mut_sig[,(dim(scat)[2]+1):dim(mut_sig)[2]]
+  mut_cat <- mut_cat/colSums(mut_cat)[col(mut_cat)]
+  a <- apply(sig_cat, 2, function(x) SigCossim(mut_cat,x))
+  subsim <- as.data.frame(a)
+  subsim$Sample <- rownames(subsim)
+  subsim$Sample <- sub(".DNA","-DNA",subsim$Sample)
+  subsim$maxcossim <- apply(subsim[,-which(names(subsim)=="Sample")],1,max)
+  
+  return(subsim)
+  
+}
+
+Generate_CossimVector_SingleSample_RepIndel <- function(SingleSample_classified_indels, Sig=MMRKO.indelsig){
+  mut_catalogue <-  gen_indelmuttype_MMRD(SingleSample_classified_indels,"Sample","indeltype_short")
+  return(Calculae_Cossim_catalogue_RepIndel(mut_catalogue, Sig))
+}
+Calculae_Cossim_catalogue_RepIndel <- function(singlesample_indel_catalogue, Sig){
+  total_subs_sig <- merge(singlesample_indel_catalogue,Sig, by="indelsubtype")
+  
+  cossim_del <- abs(cos_similarity(total_subs_sig[total_subs_sig$type=="Del",3],total_subs_sig[total_subs_sig$type=="Del",4]))
+  cossim_ins <- abs(cos_similarity(total_subs_sig[total_subs_sig$type=="Ins",3],total_subs_sig[total_subs_sig$type=="Ins",4]))
+  cossim <- abs(cos_similarity(total_subs_sig[,3],total_subs_sig[,4]))
+  
+  return(c(cossim_del, cossim_ins,cossim))
+}
+cos_similarity <- function(v1,v2){
+  v1v2 <- sum(v1*v2)
+  v1_length <- sqrt(sum(v1*v1))
+  v2_length <- sqrt(sum(v2*v2))
+  return(v1v2/v1_length/v2_length)
+}
+SigCossim <- function(mcat, sigx){
+  
+  return(apply(mcat, 2, function(x) cos_similarity(x,sigx)))
+}
+
+
+MMRDetect.compute.variables <- function(sub_cat, indel_cat, tissue_type,MMR_subsig96=MMKO_subsig,MMR_sig_indel=MMRKO_indelsig, tissue_subsig96){
+  
+  sub_MMR_expo <- MMRDetect.compute.subcatalogue.exposure(sub_cat, tissue_type,MMR_subsig96,tissue_subsig96)
+  indel_similarity <- MMRDetect.compute.Repindelcatalogue.similarity(indel_cat, tissue_type,MMR_sig_indel)
+  sub_similiarity <- MMRDetect.compute.subcatalogue.similarity(sub_cat, MMR_subsig96)
+  
+  MMRDetect_variables <- merge(sub_MMR_expo[,c("Sample","MMR_sum")],indel_similarity,by="Sample")
+  MMRDetect_variables <- merge(MMRDetect_variables,sub_similiarity[,c("Sample","maxcossim")],by="Sample")
+  write.table(MMRDetect_variables,paste0("sample_feature_summary_",tissue_type,".txt"),sep="\t", col.names = T, row.names = F, quote = F)
+  
+  return(MMRDetect_variables) 
 }
