@@ -2,7 +2,7 @@
 
 
 
-MMRDetect.compute.subcatalogue.exposure <- function(sub_cat, tissue_type,MMR_subsig96=MMKO_subsig,tissue_subsig96){
+MMRDetect.compute.subcatalogue.exposure <- function(sub_cat, tissue_type,MMR_subsig96=MMRKO_subsig,tissue_subsig96){
   
   
   # Generate catalouge for subs_highburden
@@ -178,7 +178,7 @@ MMRDetect.compute.Repindelcatalogue.similarity <- function(indel_cat, tissue_typ
   
   return(MMRsig_2) 
 }
-MMRDetect.compute.subcatalogue.similarity <- function(mcat,scat=MMKO_subsig){
+MMRDetect.compute.subcatalogue.similarity <- function(mcat,scat=MMRKO_subsig){
   mut_sig <- merge(scat,mcat,by="MutationType")
   sig_cat <- mut_sig[,2:dim(scat)[2]]
   mut_cat <- mut_sig[,(dim(scat)[2]+1):dim(mut_sig)[2]]
@@ -218,7 +218,7 @@ SigCossim <- function(mcat, sigx){
 }
 
 
-MMRDetect.compute.variables <- function(sub_cat, indel_cat, tissue_type,MMR_subsig96=MMKO_subsig,MMR_sig_indel=MMRKO_indelsig, tissue_subsig96){
+MMRDetect.compute.variables <- function(sub_cat, indel_cat, tissue_type,MMR_subsig96=MMRKO_subsig,MMR_sig_indel=MMRKO_indelsig, tissue_subsig96){
   
   sub_MMR_expo <- MMRDetect.compute.subcatalogue.exposure(sub_cat, tissue_type,MMR_subsig96,tissue_subsig96)
   indel_similarity <- MMRDetect.compute.Repindelcatalogue.similarity(indel_cat, tissue_type,MMR_sig_indel)

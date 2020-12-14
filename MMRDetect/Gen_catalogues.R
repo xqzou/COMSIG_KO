@@ -10,11 +10,11 @@ library(BSgenome.Hsapiens.UCSC.hg19)
 library(signature.tools.lib)
 library("glmnet")
 
-load("./data/MMRKO_indelsigCT.rda")
-load("./data/indelsig_template.rda")
-load("./data/MMRKO_indelsig.rda")
-load("./data/MMRKO_subsig.rda")
-
+load("../MMRDetect/data/MMRKO_indelsigCT.rda")
+load("../MMRDetect/data/indelsig_template.rda")
+load("../MMRDetect/data/MMRKO_indelsig.rda")
+load("../MMRDetect/data/MMRKO_subsig.rda")
+MMRDclassifier <- readRDS("../MMRDetect/data/MMRDetect.rds")
 #' Generate 96 channel catalogue for substitutions
 #'
 #' @param CTsubs A list of substitutions: Chrom, Pos, Ref, Alt, Sample column
