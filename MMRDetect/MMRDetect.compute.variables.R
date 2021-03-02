@@ -217,8 +217,21 @@ SigCossim <- function(mcat, sigx){
   return(apply(mcat, 2, function(x) cos_similarity(x,sigx)))
 }
 
-
-MMRDetect.compute.variables <- function(sub_cat, indel_cat, tissue_type,MMR_subsig96=MMRKO_subsig,MMR_sig_indel=MMRKO_indelsig, tissue_subsig96){
+#' Compute variables for MMRDetect
+#' 
+#' @param sub_cat substitution catalogue
+#' @param indel_cat indel catalogue
+#' @param tissue_type tissue type
+#' @param MMR_subsig96 mismatch repair gene knockout substitution signatures
+#' @param MMR_sig_indel mismatch repair gene knockout indel signatures
+#' @param tissue_subsig96 tissue-specific substitution signatures
+#' 
+#' @return variables
+#' 
+#' @examples 
+#' MMRDetect.compute.variables(sub_catalogues, indel_catalogues, "Breast")
+#' @export
+MMRDetect.compute.variables <- function(sub_cat, indel_cat, tissue_type,MMR_subsig96=MMRKO_subsig,MMR_sig_indel=MMRKO_indelsig, tissue_subsig96=PancanSig){
   
   sub_MMR_expo <- MMRDetect.compute.subcatalogue.exposure(sub_cat, tissue_type,MMR_subsig96,tissue_subsig96)
   indel_similarity <- MMRDetect.compute.Repindelcatalogue.similarity(indel_cat, tissue_type,MMR_sig_indel)

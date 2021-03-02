@@ -18,22 +18,26 @@ Wrap_KOSig(mutation_catalogue,"mean",c("PMS1_123_s1","PMS1_123_s2","PMS1_130_s1"
 ##################
 indels <- read.table("../00_common/total_indels_43genes.txt", sep = "\t", header = T, as.is = T)
 
-indel.classified <- indel_classifier15(indels)
-indel.classified$Sample <- indel.classified$Genotype
-mutation_catalogue <- gen_indelmuttype_15(indel.classified)
-
 # 15 channels
 indel.classified <- indel_classifier15(indels)
 indel.classified$Sample <- indel.classified$Genotype
 mutation_catalogue <- gen_indelmuttype_15(indel.classified)
+write.table(mutation_catalogue,"indel_catalogue_15channels",sep = "\t", col.names = T, row.names = F, quote = F)
 
 # 45 channels
 indel.classified <- indel_classifier(indels)
 indel.classified$Sample <- indel.classified$Genotype
 mutation_catalogue <- gen_indelmuttype_MMRD(indel.classified,"Sample","indeltype_short")
+write.table(mutation_catalogue,"indel_catalogue_45channels",sep = "\t", col.names = T, row.names = F, quote = F)
 
 #ko_indels_type_4_catalouge <- read.table("Ko_gene_type_4_mmrd_channeled.txt", sep = "\t", header = T, as.is = T)
 #plot_percentage_type_4_mmrd(ko_indels_type_4_catalouge, 1,26, 13, "Ko_gene_type_4_mmrd_percentage") # for figure 3
+Wrap_KOSig_indel(mutation_catalogue,"mean",c("EXO1_71_s2","EXO1_71_s3","EXO1_71_s4"),100,10,2,15,"EXO1_71_indelsig")
+Wrap_KOSig_indel(mutation_catalogue,"mean",c("MSH6_3_s4","MSH6_3_s6","MSH6_3_s5","MSH6_3_s8","MSH6_4_s2","MSH6_4_s3","MSH6_4_s4","MSH6_4_s7"),100,10,2,15,"MSH6_3_4_indelsig")
+Wrap_KOSig_indel(mutation_catalogue,"mean",c("MSH2_120_s1","MSH2_120_s2","MSH2_120_s3"),100,10,2,15,"MSH2_120_indelsig")
+Wrap_KOSig_indel(mutation_catalogue,"mean",c("PMS1_123_s1","PMS1_123_s2","PMS1_130_s1","PMS1_130_s2"),100,8,2,15,"PMS1_123_130_indelsig")
+Wrap_KOSig_indel(mutation_catalogue,"mean",c("PMS2_170_s1","PMS2_170_s2","PMS2_171_s1","PMS2_171_s2"),100,10,2,15,"PMS2_170_171_indelsig")
+Wrap_KOSig_indel(mutation_catalogue,"mean",c("MLH1_172_s1","MLH1_172_s2","MLH1_173_s1","MLH1_173_s2"),100,10,2,15,"MLH1_172_173_indelsig")
 
 
 ##################
@@ -156,6 +160,9 @@ p <- p+facet_grid(Ko_gene~rear_base,scales = "free")
 print(p)
 dev.off()
 
+write.table(b,paste0("MMR4_genes","MMR_CA_replength.txt"),sep = "\t", col.names = T, row.names = F, quote = F)
+
+
 # rep_length percentage
 cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 b <- data.frame(table(total_muts_repeat_CA$Ko_gene,total_muts_repeat_CA$rear_repeat,total_muts_repeat_CA$mut_pos_to3,total_muts_repeat_CA$rep_len))
@@ -194,6 +201,7 @@ mmr_muts <- subs[subs$Ko_gene %in%c("MSH2","MSH6","MLH1","PMS2"),]
 
 mut_catalogue <- Gen1536Catalogue(mmr_muts,"Ko_gene")
 plot1536Countbasis(mut_catalogue[,-2],1,10,40,"denovo_muts_1536catalogue_KOgene.pdf")
+write.table(mut_catalogue,"mut_catalogue1536.txt", sep = "\t", col.names = T, row.names = F, quote = F)
 
 mut_catalogue <- Gen1536Catalogue(mmr_muts,"Sample_ko")
 plot1536Countbasis(mut_catalogue[,-2],1,40,40,"denovo_muts_1536catalogue_KOSample.pdf")

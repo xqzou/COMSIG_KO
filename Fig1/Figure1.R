@@ -24,9 +24,12 @@ simi_num <- Cossimi_CompareSig2_noplot(mutation_catalogue[,-2],control_catalogue
 names(simi_num) <- c("control","ko","simi_mean")
 simi_num <- merge(simi_num,ko_info2,by="ko")
 names(simi_num) <- c("ko","control","simi_mean","n","count")
+write.table(simi_num,"fig1C_simi_num.txt", sep="\t",col.names = T, row.names = F, quote = F)
+
 
 # simulate control profile variation at different mutation number using bootstraping method
 control_simi <- Bootstrap_profile_similarity(control_catalogue$mean,20,10000,50,"control_simi")
+write.table(simi_num,"fig1C_control_simi.txt", sep="\t",col.names = T, row.names = F, quote = F)
 
 # plot the result
 pdf(file="simi_control.pdf", onefile=TRUE,height=4,width=5, useDingbats=FALSE)
@@ -57,12 +60,10 @@ indels <- read.table("../00_common/total_indels_43genes.txt", sep = "\t", header
 indel.classified <- indel_classifier15(indels)
 indel.classified$Sample <- indel.classified$Genotype
 mutation_catalogue <- gen_indelmuttype_15(indel.classified)
+write.table(mutation_catalogue,"total_indel_catalogue.txt", sep="\t",col.names = T, row.names = F, quote = F)
 
 
-mutation_catalogue <- read.table("denovo_KO_catalogue.txt",sep = "\t", header = T, as.is = T)
 control_catalogue <- read.table("background_aggragated_indel.txt",sep = "\t", header = T, as.is = T)
-pilot_catalogue <- read.table("../101_indel_pilot/indel_catalogue_subclones_aggregated.txt",sep = "\t", header = T, as.is = T)
-mutation_catalogue <- merge(mutation_catalogue,pilot_catalogue,by="indelsubtype")
 mutation_catalogue <- merge(mutation_catalogue[,-3],control_catalogue[,c("indelsubtype","aggragate")],by="indelsubtype")
 simi_all <- NULL
 for(i in 3:(dim(mutation_catalogue)[2]-1)){
@@ -79,11 +80,13 @@ ko_info2 <- ddply(ko_info[,c("ko","indel_num")],c("ko"),summarise,NChild=length(
 
 
 simi_num <- merge(simi_num,ko_info2,by="ko")
-write.table(simi_num[order(simi_num$num,decreasing = T),],"simi_num_indel.txt",sep = "\t",col.names = T, row.names = F, quote = F)
+names(simi_num) <- c("Sample.Name","simi_mean","count")
+write.table(simi_num[order(simi_num$num,decreasing = T),],"fig1d_simi_num_indel.txt",sep = "\t",col.names = T, row.names = F, quote = F)
 
 control_simi <- Bootstrap_profile_similarity(mutation_catalogue$aggragate,20,7000,50,"control_simi_7000")
-simi_num <- read.table("simi_num_indel.txt",sep = "\t", header = T, as.is = T)
-names(simi_num) <- c("Sample.Name","simi_mean","count")
+write.table(control_simi,"fig1d_control_simi.txt",sep = "\t",col.names = T, row.names = F, quote = F)
+
+simi_num <- read.table("fig1d_simi_num_indel.txt",sep = "\t", header = T, as.is = T)
 pdf(file="Similarity_number_withcontrol_indel.pdf", onefile=TRUE,height=4,width=4, useDingbats=FALSE)
 q <- ggplot(data=simi_num, aes(x=count, y=simi_mean)) + geom_point()  #+ ylim(0.4, 1) + geom_smooth(method=lm)
 q <- q+geom_point(data=control_simi,aes(x=count, y=simi_mean),colour="lightblue",size=0.5)
@@ -137,7 +140,6 @@ sample_info$Sample_ko <- paste0(sample_info$Ko_gene,"_",sub("MSK0.","",sample_in
 sub_indel_burden <- merge(data.frame(table(subs$Sample_ko)), data.frame(table(indels$Sample_ko)), by="Var1",all=T)
 sub_indel_burden[is.na(sub_indel_burden)] <- 0
 names(sub_indel_burden) <- c("Sample_ko","sub","indel")
-write.table(sub_indel_burden,"sub_indel_burden.txt", sep = "\t", col.names = T, row.names = F, quote = F)
 
 #c("MSH2","MLH1","PMS2", "PMS1","EXO1","RNF168","UNG","OGG1")
 sample_sel <- sample_info[sample_info$Ko_gene %in% c("ATP2B4", "OGG1", "UNG", "EXO1", "RNF168", "MSH2", "MSH6", "MLH1", "PMS2","PMS1") & sample_info$Doublings==12 & sample_info$Clonality=="Clonal","Sample_ko"]
@@ -146,14 +148,16 @@ sub_indel_burden_9sg <- sub_indel_burden[sub_indel_burden$Sample_ko %in%sample_s
 sub_indel_burden_9sg$Ko_gene <- sub("\\_.*","",sub_indel_burden_9sg$Sample_ko)
 all_good_melt <- melt(sub_indel_burden_9sg,c("Sample_ko","Ko_gene"))
 names(all_good_melt) <- c("Sample","Ko_gene","type","freq")
+write.table(all_good_melt,"fig1e_sub_indel_burden.txt", sep = "\t", col.names = T, row.names = F, quote = F)
+
 all_good_summary <- ddply(all_good_melt, c("Ko_gene","type"), summarise, NChild=length(freq),mean=mean(freq),sd=sd(freq))
 
-pdf(file=paste0("sig_sub_indel",".pdf"), onefile=TRUE,height=4,width=5.5, useDingbats=FALSE)
-p <- ggplot(all_good_summary, aes(x=Ko_gene, y=mean, fill=type)) + 
+pdf(file=paste0("fig1e_sig_sub_indel",".pdf"), onefile=TRUE,height=4,width=5.5, useDingbats=FALSE)
+p <- ggplot(all_good_summary, aes(x=Ko_gene, y=mean, fill=type)) +
   geom_bar(position=position_dodge(), stat="identity",width=0.8) +
   geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd),
                 width=.2,                    # Width of the error bars
-                position=position_dodge(.8))
+                position=position_dodge(.8))+ geom_point(data=all_good_melt,aes(x=Ko_gene, y=freq),position=position_jitterdodge(0.1))
 p <- p+scale_x_discrete(limits = c("MSH2","MLH1","MSH6","PMS2","EXO1","RNF168","OGG1","PMS1","UNG","ATP2B4"))+scale_fill_manual(values=c("#33FF99", "#0099FF"))
 p <- p+theme(axis.text.x=element_text(angle=45,size=10,colour = "black",hjust=0.9,vjust=1),
              axis.text.y=element_text(size=10,colour = "black"),
@@ -169,6 +173,3 @@ p <- p+theme(axis.text.x=element_text(angle=45,size=10,colour = "black",hjust=0.
 
 print(p)
 dev.off()
-
-
-

@@ -2,8 +2,8 @@ source("../00_common/indel_functions.R")
 source("../00_common/sub_functions.R")
 
 ##################
-#   Figure 4B
-# RefSigMMR Tissue signature + CMMRD patients
+#   Figure 4c
+#  CMMRD patients subs
 ##################
 # CMMRD patients
 muts_patient_devono_all <- read.table("muts_patient_devono_all.txt",sep = "\t",header = T, as.is = T)
@@ -26,8 +26,41 @@ Wrap_KOSig(mutation_catalogue,"Control","CMMRD_89",100,150,2,"CMMRD_89_sig")
 Wrap_KOSig(mutation_catalogue,"Control","CMMRD_94",100,150,2,"CMMRD_94_sig")
 Wrap_KOSig(mutation_catalogue,"Control","PMS2",100,150,2,"PMS2_sig")
 
+sig_all <- NULL
+sigfilelist <- dir("./sigfiles")
+for(i in 1:length(sigfilelist)[1]){
+  sig_file <- read.table(paste0("./sigfiles/",sigfilelist[i]), sep = "\t", header = T, as.is = T)
+  sig_all <- cbind(sig_all,sig_file[,"KO_exposure"])
+  
+}
+sig_all <- sig_all/colSums(sig_all)[col(sig_all)]
+sig_all <- as.data.frame(sig_all)
+names(sig_all) <- sub("_sig.txt","",sigfilelist)
+sig_all$MutationType <-  sig_file$MutationType
 
+write.table(sig_all,"CMMRD_sig_all.txt",sep = "\t",col.names = T, row.names = F, quote = F)
 
+##################
+#   Figure 4d
+#  CMMRD patients indels
+##################
+indel.classified_details <- read.table("./muts_patient_devono_all.txt", sep = "\t", header = T, as.is = T)
+indel_templateMMR <- read.table("../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
+indel_template2 <- indel_templateMMR
+names(indel_template2)[1] <- c("Subtype")
+indel.classified_details <- merge(indel.classified_details,indel_template2,by="Subtype")
+indel.classified_details <- indel.classified_details[indel.classified_details$patient%in%c("MSH3","MSH77","MSH89","MSH94"),]
+
+ko_sigset <- gen_indelmuttype_MMRD(indel.classified_details[indel.classified_details$celltype=="ips_subclone",],"patient","indeltype_short")
+write.table(ko_sigset[,-2],"denovo_Ko_gene_catalogue_indel.txt",sep = "\t",col.names = T, row.names = F, quote = F)
+
+ko_sigset <- read.table("denovo_Ko_gene_catalogue_indel.txt",sep = "\t", header = T, as.is = T)
+plotCountbasis_indel_45types_6(ko_sigset,1,10,6,"denovo_Ko_gene_profile_indel")
+
+##################
+#   Figure 4e
+# RefSigMMR Tissue signature + CMMRD patients
+##################
 # hcluster
 # ko signatures
 sig_all <- NULL
@@ -82,6 +115,9 @@ kosig_pancansig_all_2 <- t(kosig_pancansig_all[,-1])
 colnames(kosig_pancansig_all_2) <- kosig_pancansig_all$MutationType
 kosig_pancansig_all_2 <- data.matrix(kosig_pancansig_all_2)
 kosig_pancansig_all_2 <- round(kosig_pancansig_all_2,2)
+write.table(kosig_pancansig_all_2,"sigMMR_group_with_cmmrd_patients.txt",sep = "\t",col.names = T, row.names = T, quote = F)
+
+
 # creates a own color palette from red to green
 my_palette <- colorRampPalette(c("white", "blue"))(n = 50)
 

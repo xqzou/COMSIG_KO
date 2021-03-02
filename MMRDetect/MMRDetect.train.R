@@ -1,12 +1,15 @@
-# Train MMRDetect
+#' Train MMRDetect
+#'
+#' @param mutationVariable A list of input variables,"Del_rep_mean","RepIndel_num","MMR_sum","maxcossim"
+#' @param classification Sample classification
+#' @return trained model
 
-
-
-MMRDetect.train <- function(mutationVariable, classification, cancerType = NULL) {
+#' @export
+MMRDetect.train <- function(mutationVariable, classification) {
   
   
   ## match the data with classification
-  trainset = mutationVariable
+  trainset = mutationVariable[,c("Sample","Del_rep_mean","RepIndel_num","MMR_sum","maxcossim")]
   trainset = merge(trainset, classification[,c("Sample","MSI_status")], by="Sample")
   
   if(nrow(trainset)<50){

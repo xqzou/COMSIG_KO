@@ -923,7 +923,7 @@ indel_classifier <- function(indels){
   
   indel.classified_details[indel.classified_details$Chrom=="X","Chrom"]=23
   indel.classified_details[indel.classified_details$Chrom=="Y","Chrom"]=24
-  indel_templateMMR <- read.table("../../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
+  indel_templateMMR <- read.table("../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
   indel_template2 <- indel_templateMMR
   names(indel_template2)[1] <- c("Subtype")
   indel.classified_details <- merge(indel.classified_details,indel_template2,by="Subtype")
@@ -952,7 +952,7 @@ indel_classifier15 <- function(indels){
   
   indel.classified_details[indel.classified_details$Chrom=="X","Chrom"]=23
   indel.classified_details[indel.classified_details$Chrom=="Y","Chrom"]=24
-  indel_template2 <- read.table("/nfs/cancer_archive04/xz3/b_1176/26_indels_fullscale/indel_template69.txt",sep = "\t",header = T, as.is = T)
+  indel_template2 <- read.table("../00_common/indel_template69.txt",sep = "\t",header = T, as.is = T)
 
   names(indel_template2)[1] <- c("Subtype")
   indel.classified_details <- merge(indel.classified_details,indel_template2,by="Subtype")
@@ -2147,7 +2147,7 @@ gen_indelmuttype_new <- function(muts_list){
   return(indel_catalogue)
 }
 gen_indelmuttype_15 <- function(muts_list){
-  indel_template <- read.table("/nfs/cancer_archive04/xz3/b_1176/26_indels_fullscale/indel_template15.txt",sep = "\t",header = T, as.is = T)
+  indel_template <- read.table("../00_common/indel_template15.txt",sep = "\t",header = T, as.is = T)
   indel_catalogue <- data.frame(table(muts_list$Sample,muts_list$Subtype))
   names(indel_catalogue) <- c("subclone","indelsubtype","freq")
   indel_catalogue <- dcast(indel_catalogue,indelsubtype~subclone,value.var="freq")
@@ -2166,7 +2166,7 @@ gen_indelmuttype_sample_15 <- function(muts_list,sample){
 }
 
 gen_indelmuttype_MMRD <- function(muts_list, Sample_col, muttype_col){
-  indel_template <- read.table("../../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
+  indel_template <- read.table("../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
   indel_template_uniq <- unique(indel_template[,c(muttype_col,"type")])
   names(indel_template_uniq) <- c("indelsubtype","type")
   indel_catalogue <- data.frame(table(muts_list[,Sample_col],muts_list[,muttype_col]))
@@ -2177,7 +2177,7 @@ gen_indelmuttype_MMRD <- function(muts_list, Sample_col, muttype_col){
   return(indel_catalogue)
 }
 plotCountbasis_indel_45types_6 <- function(muts_basis,colnum,h,w,outputname){
-  indel_template <- read.table("/nfs/cancer_archive04/xz3/b_1176/29_indels_final03262019/20_MMRD_sig/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
+  indel_template <- read.table("../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
   indel_template_uniq <- unique(indel_template[,c("indeltype_short","type")])
   names(indel_template_uniq) <- c("indelsubtype","type")
   
