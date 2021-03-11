@@ -1,8 +1,14 @@
 # Apply MMRDetect to 26 breast cancers
 
-source("../R/Gen_catalogues.R")
-source("../R/MMRDetect.compute.variables.R")
-source("../R/MMRDetect.classify.R")
+source("../Gen_catalogues.R")
+source("../MMRDetect.compute.variables.R")
+source("../MMRDetect.classify.R")
+
+load("../data/MMRKO_indelsigCT.rda")
+load("../data/indelsig_template.rda")
+load("../data/MMRKO_indelsig.rda")
+load("../data/MMRKO_subsig.rda")
+load("../data/PancanSig.rda")
 
 # 1) Generate substitution catalogue
 all_subs <- read.table("./breast26_subs.txt",sep = "\t", header = T, as.is = T)

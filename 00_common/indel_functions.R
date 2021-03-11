@@ -697,7 +697,7 @@ indel_classifier <- function(indels){
   
   indel.classified_details[indel.classified_details$Chrom=="X","Chrom"]=23
   indel.classified_details[indel.classified_details$Chrom=="Y","Chrom"]=24
-  indel_templateMMR <- read.table("../../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
+  indel_templateMMR <- read.table("../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
   indel_template2 <- indel_templateMMR
   names(indel_template2)[1] <- c("Subtype")
   indel.classified_details <- merge(indel.classified_details,indel_template2,by="Subtype")
@@ -825,92 +825,28 @@ plot_percentage_type_4_mmrd <- function(muts_basis,colnum,h,w,outputname){
   # return(muts_basis)
 }
 
-gen_indelmuttype_MMRD2 <- function(muts_list, Sample_col, muttype_col){
-  
-  indel_template <- data.frame("indelsubtype"=c("[+C]NonRep","[+C]ShortRep_leq4","[+C]LongRep_g4",
-                                                
-                                                "A|[+T]Rep=0|A","A|[+T]Rep=0|C","A|[+T]Rep=0|G","C|[+T]Rep=0|A","C|[+T]Rep=0|C","C|[+T]Rep=0|G","G|[+T]Rep=0|A","G|[+T]Rep=0|C","G|[+T]Rep=0|G",
-                                                "A|[+T]Rep=1|A","A|[+T]Rep=1|C","A|[+T]Rep=1|G","C|[+T]Rep=1|A","C|[+T]Rep=1|C","C|[+T]Rep=1|G","G|[+T]Rep=1|A","G|[+T]Rep=1|C","G|[+T]Rep=1|G",
-                                                "A|[+T]Rep=2|A","A|[+T]Rep=2|C","A|[+T]Rep=2|G","C|[+T]Rep=2|A","C|[+T]Rep=2|C","C|[+T]Rep=2|G","G|[+T]Rep=2|A","G|[+T]Rep=2|C","G|[+T]Rep=2|G",
-                                                "A|[+T]Rep=3|A","A|[+T]Rep=3|C","A|[+T]Rep=3|G","C|[+T]Rep=3|A","C|[+T]Rep=3|C","C|[+T]Rep=3|G","G|[+T]Rep=3|A","G|[+T]Rep=3|C","G|[+T]Rep=3|G",
-                                                "A|[+T]Rep=4|A","A|[+T]Rep=4|C","A|[+T]Rep=4|G","C|[+T]Rep=4|A","C|[+T]Rep=4|C","C|[+T]Rep=4|G","G|[+T]Rep=4|A","G|[+T]Rep=4|C","G|[+T]Rep=4|G",
-                                                "A|[+T]Rep=5|A","A|[+T]Rep=5|C","A|[+T]Rep=5|G","C|[+T]Rep=5|A","C|[+T]Rep=5|C","C|[+T]Rep=5|G","G|[+T]Rep=5|A","G|[+T]Rep=5|C","G|[+T]Rep=5|G",
-                                                "A|[+T]Rep=6|A","A|[+T]Rep=6|C","A|[+T]Rep=6|G","C|[+T]Rep=6|A","C|[+T]Rep=6|C","C|[+T]Rep=6|G","G|[+T]Rep=6|A","G|[+T]Rep=6|C","G|[+T]Rep=6|G",
-                                                "A|[+T]Rep=7|A","A|[+T]Rep=7|C","A|[+T]Rep=7|G","C|[+T]Rep=7|A","C|[+T]Rep=7|C","C|[+T]Rep=7|G","G|[+T]Rep=7|A","G|[+T]Rep=7|C","G|[+T]Rep=7|G",
-                                                "A|[+T]Rep=8|A","A|[+T]Rep=8|C","A|[+T]Rep=8|G","C|[+T]Rep=8|A","C|[+T]Rep=8|C","C|[+T]Rep=8|G","G|[+T]Rep=8|A","G|[+T]Rep=8|C","G|[+T]Rep=8|G",
-                                                "A|[+T]Rep=9|A","A|[+T]Rep=9|C","A|[+T]Rep=9|G","C|[+T]Rep=9|A","C|[+T]Rep=9|C","C|[+T]Rep=9|G","G|[+T]Rep=9|A","G|[+T]Rep=9|C","G|[+T]Rep=9|G",
-                                                
-                                                "[+>1]Other","[+>1]Rep<=4","[+>1]Rep>=5",
-                                                
-                                                "[+]Mh",
-                                                
-                                                "[-C]NonRep","[-C]ShortRep_leq4","[-C]LongRep_g4",
-                                                
-                                                "A|[-T]Rep=1|A","A|[-T]Rep=1|C","A|[-T]Rep=1|G","C|[-T]Rep=1|A","C|[-T]Rep=1|C","C|[-T]Rep=1|G","G|[-T]Rep=1|A","G|[-T]Rep=1|C","G|[-T]Rep=1|G",
-                                                "A|[-T]Rep=2|A","A|[-T]Rep=2|C","A|[-T]Rep=2|G","C|[-T]Rep=2|A","C|[-T]Rep=2|C","C|[-T]Rep=2|G","G|[-T]Rep=2|A","G|[-T]Rep=2|C","G|[-T]Rep=2|G",
-                                                "A|[-T]Rep=3|A","A|[-T]Rep=3|C","A|[-T]Rep=3|G","C|[-T]Rep=3|A","C|[-T]Rep=3|C","C|[-T]Rep=3|G","G|[-T]Rep=3|A","G|[-T]Rep=3|C","G|[-T]Rep=3|G",
-                                                "A|[-T]Rep=4|A","A|[-T]Rep=4|C","A|[-T]Rep=4|G","C|[-T]Rep=4|A","C|[-T]Rep=4|C","C|[-T]Rep=4|G","G|[-T]Rep=4|A","G|[-T]Rep=4|C","G|[-T]Rep=4|G",
-                                                "A|[-T]Rep=5|A","A|[-T]Rep=5|C","A|[-T]Rep=5|G","C|[-T]Rep=5|A","C|[-T]Rep=5|C","C|[-T]Rep=5|G","G|[-T]Rep=5|A","G|[-T]Rep=5|C","G|[-T]Rep=5|G",
-                                                "A|[-T]Rep=6|A","A|[-T]Rep=6|C","A|[-T]Rep=6|G","C|[-T]Rep=6|A","C|[-T]Rep=6|C","C|[-T]Rep=6|G","G|[-T]Rep=6|A","G|[-T]Rep=6|C","G|[-T]Rep=6|G",
-                                                "A|[-T]Rep=7|A","A|[-T]Rep=7|C","A|[-T]Rep=7|G","C|[-T]Rep=7|A","C|[-T]Rep=7|C","C|[-T]Rep=7|G","G|[-T]Rep=7|A","G|[-T]Rep=7|C","G|[-T]Rep=7|G",
-                                                "A|[-T]Rep=8|A","A|[-T]Rep=8|C","A|[-T]Rep=8|G","C|[-T]Rep=8|A","C|[-T]Rep=8|C","C|[-T]Rep=8|G","G|[-T]Rep=8|A","G|[-T]Rep=8|C","G|[-T]Rep=8|G",
-                                                "A|[-T]Rep=9|A","A|[-T]Rep=9|C","A|[-T]Rep=9|G","C|[-T]Rep=9|A","C|[-T]Rep=9|C","C|[-T]Rep=9|G","G|[-T]Rep=9|A","G|[-T]Rep=9|C","G|[-T]Rep=9|G",
-                                                
-                                                "[->1]Other","[->1]Rep<=5","[->1]Rep>=6","[-]Mh",
-                                                "Complex"),
-                               "type"=c("[+C]","[+C]","[+C]",
-                                        
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        "[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]","[+T]",
-                                        
-                                        "[+>1]Other",
-                                        "[+>1]Rep","[+>1]Rep",
-                                        "[+]Mh",
-                                        
-                                        "[-C]","[-C]","[-C]",
-                                        
-                                        "[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]",
-                                        "[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]",
-                                        "[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]",
-                                        "[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]",
-                                        "[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]",
-                                        "[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]",
-                                        "[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]",
-                                        "[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]",
-                                        "[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]","[-T]",
-                                        
-                                        "[->1]Other",
-                                        "[->1]Rep","[->1]Rep",
-                                        "[-]Mh",
-                                        "Complex"
-                                        
-                               ))
+gen_indelmuttype_MMRD <- function(muts_list, Sample_col, muttype_col){
+  indel_template <- read.table("../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
+  indel_template_uniq <- unique(indel_template[,c(muttype_col,"type")])
+  names(indel_template_uniq) <- c("indelsubtype","type")
   indel_catalogue <- data.frame(table(muts_list[,Sample_col],muts_list[,muttype_col]))
-  names(indel_catalogue) <- c("Sample","indelsubtype","freq")
-  indel_catalogue <- dcast(indel_catalogue,indelsubtype~Sample,value.var="freq")
-  indel_catalogue <- merge(indel_template,indel_catalogue,by="indelsubtype",all.x=T)
+  names(indel_catalogue) <- c("subclone","indelsubtype","freq")
+  indel_catalogue <- dcast(indel_catalogue,indelsubtype~subclone,value.var="freq")
+  indel_catalogue <- merge(indel_template_uniq,indel_catalogue,by="indelsubtype",all.x=T)
   indel_catalogue[is.na(indel_catalogue)] <- 0
   return(indel_catalogue)
 }
-plotCountbasis_indel_MMRD2 <- function(muts_basis,colnum,h,w,outputname){
-  indel_template <- read.table("../../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
-  indel_template_uniq <- unique(indel_template[,c("indeltype_medium","indeltype_short","type")])
-  names(indel_template_uniq) <- c("indelsubtype","indeltype_short","type")
+plotCountbasis_indel_45types_6 <- function(muts_basis,colnum,h,w,outputname){
+  indel_template <- read.table("../00_common/indel_templateMMRD.txt",sep = "\t",header = T, as.is = T)
+  indel_template_uniq <- unique(indel_template[,c("indeltype_short","type")])
+  names(indel_template_uniq) <- c("indelsubtype","type")
   
   muts_basis_melt <- melt(muts_basis,c("indelsubtype"))
   
   muts_basis_melt <- merge(indel_template_uniq, muts_basis_melt,by=c("indelsubtype"),all.x=T)
   muts_basis_melt[is.na(muts_basis_melt)] <- 0
-  names(muts_basis_melt) <- c("indelsubtype","indeltype_short","type","Sample","freq")
-  muts_basis_melt$indeltype <- sub("\\=.*","",muts_basis_melt$indeltype_short)
+  names(muts_basis_melt) <- c("indelsubtype","type","Sample","freq")
+  muts_basis_melt$indeltype <- sub("\\=.*","",muts_basis_melt$indelsubtype)
   #indel_mypalette_fill <- c("lightcyan", "skyblue","royalblue","lightgoldenrod","goldenrod1","darkorange","deeppink","hotpink","pink","green")
   muts_basis_melt$Sample <- as.character(muts_basis_melt$Sample)
   
@@ -936,69 +872,19 @@ plotCountbasis_indel_MMRD2 <- function(muts_basis,colnum,h,w,outputname){
                            "purple","deeppink","darkgreen","blue","tomato",
                            "grey")
   
-  indel_positions <- c("[+C]NonRep","[+C]ShortRep_leq4","[+C]LongRep_g4",
-                       
-                       "A|[+T]Rep=0|A","A|[+T]Rep=0|C","A|[+T]Rep=0|G","C|[+T]Rep=0|A","C|[+T]Rep=0|C","C|[+T]Rep=0|G","G|[+T]Rep=0|A","G|[+T]Rep=0|C","G|[+T]Rep=0|G",
-                       "A|[+T]Rep=1|A","A|[+T]Rep=1|C","A|[+T]Rep=1|G","C|[+T]Rep=1|A","C|[+T]Rep=1|C","C|[+T]Rep=1|G","G|[+T]Rep=1|A","G|[+T]Rep=1|C","G|[+T]Rep=1|G",
-                       "A|[+T]Rep=2|A","A|[+T]Rep=2|C","A|[+T]Rep=2|G","C|[+T]Rep=2|A","C|[+T]Rep=2|C","C|[+T]Rep=2|G","G|[+T]Rep=2|A","G|[+T]Rep=2|C","G|[+T]Rep=2|G",
-                       "A|[+T]Rep=3|A","A|[+T]Rep=3|C","A|[+T]Rep=3|G","C|[+T]Rep=3|A","C|[+T]Rep=3|C","C|[+T]Rep=3|G","G|[+T]Rep=3|A","G|[+T]Rep=3|C","G|[+T]Rep=3|G",
-                       "A|[+T]Rep=4|A","A|[+T]Rep=4|C","A|[+T]Rep=4|G","C|[+T]Rep=4|A","C|[+T]Rep=4|C","C|[+T]Rep=4|G","G|[+T]Rep=4|A","G|[+T]Rep=4|C","G|[+T]Rep=4|G",
-                       "A|[+T]Rep=5|A","A|[+T]Rep=5|C","A|[+T]Rep=5|G","C|[+T]Rep=5|A","C|[+T]Rep=5|C","C|[+T]Rep=5|G","G|[+T]Rep=5|A","G|[+T]Rep=5|C","G|[+T]Rep=5|G",
-                       "A|[+T]Rep=6|A","A|[+T]Rep=6|C","A|[+T]Rep=6|G","C|[+T]Rep=6|A","C|[+T]Rep=6|C","C|[+T]Rep=6|G","G|[+T]Rep=6|A","G|[+T]Rep=6|C","G|[+T]Rep=6|G",
-                       "A|[+T]Rep=7|A","A|[+T]Rep=7|C","A|[+T]Rep=7|G","C|[+T]Rep=7|A","C|[+T]Rep=7|C","C|[+T]Rep=7|G","G|[+T]Rep=7|A","G|[+T]Rep=7|C","G|[+T]Rep=7|G",
-                       "A|[+T]Rep=8|A","A|[+T]Rep=8|C","A|[+T]Rep=8|G","C|[+T]Rep=8|A","C|[+T]Rep=8|C","C|[+T]Rep=8|G","G|[+T]Rep=8|A","G|[+T]Rep=8|C","G|[+T]Rep=8|G",
-                       "A|[+T]Rep=9|A","A|[+T]Rep=9|C","A|[+T]Rep=9|G","C|[+T]Rep=9|A","C|[+T]Rep=9|C","C|[+T]Rep=9|G","G|[+T]Rep=9|A","G|[+T]Rep=9|C","G|[+T]Rep=9|G",
-                       
-                       "[+>1]Other","[+>1]Rep<=4","[+>1]Rep>=5",
-                       
-                       "[+]Mh",
-                       
-                       "[-C]NonRep","[-C]ShortRep_leq4","[-C]LongRep_g4",
-                       
-                       "A|[-T]Rep=1|A","A|[-T]Rep=1|C","A|[-T]Rep=1|G","C|[-T]Rep=1|A","C|[-T]Rep=1|C","C|[-T]Rep=1|G","G|[-T]Rep=1|A","G|[-T]Rep=1|C","G|[-T]Rep=1|G",
-                       "A|[-T]Rep=2|A","A|[-T]Rep=2|C","A|[-T]Rep=2|G","C|[-T]Rep=2|A","C|[-T]Rep=2|C","C|[-T]Rep=2|G","G|[-T]Rep=2|A","G|[-T]Rep=2|C","G|[-T]Rep=2|G",
-                       "A|[-T]Rep=3|A","A|[-T]Rep=3|C","A|[-T]Rep=3|G","C|[-T]Rep=3|A","C|[-T]Rep=3|C","C|[-T]Rep=3|G","G|[-T]Rep=3|A","G|[-T]Rep=3|C","G|[-T]Rep=3|G",
-                       "A|[-T]Rep=4|A","A|[-T]Rep=4|C","A|[-T]Rep=4|G","C|[-T]Rep=4|A","C|[-T]Rep=4|C","C|[-T]Rep=4|G","G|[-T]Rep=4|A","G|[-T]Rep=4|C","G|[-T]Rep=4|G",
-                       "A|[-T]Rep=5|A","A|[-T]Rep=5|C","A|[-T]Rep=5|G","C|[-T]Rep=5|A","C|[-T]Rep=5|C","C|[-T]Rep=5|G","G|[-T]Rep=5|A","G|[-T]Rep=5|C","G|[-T]Rep=5|G",
-                       "A|[-T]Rep=6|A","A|[-T]Rep=6|C","A|[-T]Rep=6|G","C|[-T]Rep=6|A","C|[-T]Rep=6|C","C|[-T]Rep=6|G","G|[-T]Rep=6|A","G|[-T]Rep=6|C","G|[-T]Rep=6|G",
-                       "A|[-T]Rep=7|A","A|[-T]Rep=7|C","A|[-T]Rep=7|G","C|[-T]Rep=7|A","C|[-T]Rep=7|C","C|[-T]Rep=7|G","G|[-T]Rep=7|A","G|[-T]Rep=7|C","G|[-T]Rep=7|G",
-                       "A|[-T]Rep=8|A","A|[-T]Rep=8|C","A|[-T]Rep=8|G","C|[-T]Rep=8|A","C|[-T]Rep=8|C","C|[-T]Rep=8|G","G|[-T]Rep=8|A","G|[-T]Rep=8|C","G|[-T]Rep=8|G",
-                       "A|[-T]Rep=9|A","A|[-T]Rep=9|C","A|[-T]Rep=9|G","C|[-T]Rep=9|A","C|[-T]Rep=9|C","C|[-T]Rep=9|G","G|[-T]Rep=9|A","G|[-T]Rep=9|C","G|[-T]Rep=9|G",
-                       
-                       "[->1]Other","[->1]Rep<=5","[->1]Rep>=6","[-]Mh",
-                       "Complex")
+  indel_positions <- c("[+C]Rep=0","[+C]Rep=1","[+C]Rep=2","[+C]Rep=3","[+C]Rep=4","[+C]Rep=5","[+C]Rep=6","[+C]Rep=7","[+C]Rep=8","[+C]Rep=9",
+                       "[+T]Rep=0","[+T]Rep=1","[+T]Rep=2","[+T]Rep=3","[+T]Rep=4","[+T]Rep=5","[+T]Rep=6","[+T]Rep=7","[+T]Rep=8","[+T]Rep=9",
+                       "[+>1]Rep","[+>1]Other","[+]Mh",
+                       "[-C]Rep=1","[-C]Rep=2","[-C]Rep=3","[-C]Rep=4","[-C]Rep=5","[-C]Rep=6","[-C]Rep=7","[-C]Rep=8","[-C]Rep=9",
+                       "[-T]Rep=1","[-T]Rep=2","[-T]Rep=3","[-T]Rep=4","[-T]Rep=5","[-T]Rep=6","[-T]Rep=7","[-T]Rep=8","[-T]Rep=9",
+                       "[->1]Rep","[->1]Other","[-]Mh","Complex") 
   
-  indel_labels <- c("[+C]NonRep","[+C]ShortRep_leq4","[+C]LongRep_g4",
-                    
-                    "A|[+T]Rep=0|A","A|[+T]Rep=0|C","A|[+T]Rep=0|G","C|[+T]Rep=0|A","C|[+T]Rep=0|C","C|[+T]Rep=0|G","G|[+T]Rep=0|A","G|[+T]Rep=0|C","G|[+T]Rep=0|G",
-                    "A|[+T]Rep=1|A","A|[+T]Rep=1|C","A|[+T]Rep=1|G","C|[+T]Rep=1|A","C|[+T]Rep=1|C","C|[+T]Rep=1|G","G|[+T]Rep=1|A","G|[+T]Rep=1|C","G|[+T]Rep=1|G",
-                    "A|[+T]Rep=2|A","A|[+T]Rep=2|C","A|[+T]Rep=2|G","C|[+T]Rep=2|A","C|[+T]Rep=2|C","C|[+T]Rep=2|G","G|[+T]Rep=2|A","G|[+T]Rep=2|C","G|[+T]Rep=2|G",
-                    "A|[+T]Rep=3|A","A|[+T]Rep=3|C","A|[+T]Rep=3|G","C|[+T]Rep=3|A","C|[+T]Rep=3|C","C|[+T]Rep=3|G","G|[+T]Rep=3|A","G|[+T]Rep=3|C","G|[+T]Rep=3|G",
-                    "A|[+T]Rep=4|A","A|[+T]Rep=4|C","A|[+T]Rep=4|G","C|[+T]Rep=4|A","C|[+T]Rep=4|C","C|[+T]Rep=4|G","G|[+T]Rep=4|A","G|[+T]Rep=4|C","G|[+T]Rep=4|G",
-                    "A|[+T]Rep=5|A","A|[+T]Rep=5|C","A|[+T]Rep=5|G","C|[+T]Rep=5|A","C|[+T]Rep=5|C","C|[+T]Rep=5|G","G|[+T]Rep=5|A","G|[+T]Rep=5|C","G|[+T]Rep=5|G",
-                    "A|[+T]Rep=6|A","A|[+T]Rep=6|C","A|[+T]Rep=6|G","C|[+T]Rep=6|A","C|[+T]Rep=6|C","C|[+T]Rep=6|G","G|[+T]Rep=6|A","G|[+T]Rep=6|C","G|[+T]Rep=6|G",
-                    "A|[+T]Rep=7|A","A|[+T]Rep=7|C","A|[+T]Rep=7|G","C|[+T]Rep=7|A","C|[+T]Rep=7|C","C|[+T]Rep=7|G","G|[+T]Rep=7|A","G|[+T]Rep=7|C","G|[+T]Rep=7|G",
-                    "A|[+T]Rep=8|A","A|[+T]Rep=8|C","A|[+T]Rep=8|G","C|[+T]Rep=8|A","C|[+T]Rep=8|C","C|[+T]Rep=8|G","G|[+T]Rep=8|A","G|[+T]Rep=8|C","G|[+T]Rep=8|G",
-                    "A|[+T]Rep=9|A","A|[+T]Rep=9|C","A|[+T]Rep=9|G","C|[+T]Rep=9|A","C|[+T]Rep=9|C","C|[+T]Rep=9|G","G|[+T]Rep=9|A","G|[+T]Rep=9|C","G|[+T]Rep=9|G",
-                    
-                    "[+>1]Other","[+>1]Rep<=4","[+>1]Rep>=5",
-                    
-                    "[+]Mh",
-                    
-                    "[-C]NonRep","[-C]ShortRep_leq4","[-C]LongRep_g4",
-                    
-                    "A|[-T]Rep=1|A","A|[-T]Rep=1|C","A|[-T]Rep=1|G","C|[-T]Rep=1|A","C|[-T]Rep=1|C","C|[-T]Rep=1|G","G|[-T]Rep=1|A","G|[-T]Rep=1|C","G|[-T]Rep=1|G",
-                    "A|[-T]Rep=2|A","A|[-T]Rep=2|C","A|[-T]Rep=2|G","C|[-T]Rep=2|A","C|[-T]Rep=2|C","C|[-T]Rep=2|G","G|[-T]Rep=2|A","G|[-T]Rep=2|C","G|[-T]Rep=2|G",
-                    "A|[-T]Rep=3|A","A|[-T]Rep=3|C","A|[-T]Rep=3|G","C|[-T]Rep=3|A","C|[-T]Rep=3|C","C|[-T]Rep=3|G","G|[-T]Rep=3|A","G|[-T]Rep=3|C","G|[-T]Rep=3|G",
-                    "A|[-T]Rep=4|A","A|[-T]Rep=4|C","A|[-T]Rep=4|G","C|[-T]Rep=4|A","C|[-T]Rep=4|C","C|[-T]Rep=4|G","G|[-T]Rep=4|A","G|[-T]Rep=4|C","G|[-T]Rep=4|G",
-                    "A|[-T]Rep=5|A","A|[-T]Rep=5|C","A|[-T]Rep=5|G","C|[-T]Rep=5|A","C|[-T]Rep=5|C","C|[-T]Rep=5|G","G|[-T]Rep=5|A","G|[-T]Rep=5|C","G|[-T]Rep=5|G",
-                    "A|[-T]Rep=6|A","A|[-T]Rep=6|C","A|[-T]Rep=6|G","C|[-T]Rep=6|A","C|[-T]Rep=6|C","C|[-T]Rep=6|G","G|[-T]Rep=6|A","G|[-T]Rep=6|C","G|[-T]Rep=6|G",
-                    "A|[-T]Rep=7|A","A|[-T]Rep=7|C","A|[-T]Rep=7|G","C|[-T]Rep=7|A","C|[-T]Rep=7|C","C|[-T]Rep=7|G","G|[-T]Rep=7|A","G|[-T]Rep=7|C","G|[-T]Rep=7|G",
-                    "A|[-T]Rep=8|A","A|[-T]Rep=8|C","A|[-T]Rep=8|G","C|[-T]Rep=8|A","C|[-T]Rep=8|C","C|[-T]Rep=8|G","G|[-T]Rep=8|A","G|[-T]Rep=8|C","G|[-T]Rep=8|G",
-                    "A|[-T]Rep=9|A","A|[-T]Rep=9|C","A|[-T]Rep=9|G","C|[-T]Rep=9|A","C|[-T]Rep=9|C","C|[-T]Rep=9|G","G|[-T]Rep=9|A","G|[-T]Rep=9|C","G|[-T]Rep=9|G",
-                    
-                    "[->1]Other","[->1]Rep<=5","[->1]Rep>=6","[-]Mh",
-                    "Complex") 
+  indel_labels <- c("[+C]Rep=0","[+C]Rep=1","[+C]Rep=2","[+C]Rep=3","[+C]Rep=4","[+C]Rep=5","[+C]Rep=6","[+C]Rep=7","[+C]Rep=8","[+C]Rep=9",
+                    "[+T]Rep=0","[+T]Rep=1","[+T]Rep=2","[+T]Rep=3","[+T]Rep=4","[+T]Rep=5","[+T]Rep=6","[+T]Rep=7","[+T]Rep=8","[+T]Rep=9",
+                    "[+>1]Rep","[+>1]Other","[+]Mh",
+                    "[-C]Rep=1","[-C]Rep=2","[-C]Rep=3","[-C]Rep=4","[-C]Rep=5","[-C]Rep=6","[-C]Rep=7","[-C]Rep=8","[-C]Rep=9",
+                    "[-T]Rep=1","[-T]Rep=2","[-T]Rep=3","[-T]Rep=4","[-T]Rep=5","[-T]Rep=6","[-T]Rep=7","[-T]Rep=8","[-T]Rep=9",
+                    "[->1]Rep","[->1]Other","[-]Mh","Complex") 
   
   
   filename <- paste0(outputname, ".pdf")

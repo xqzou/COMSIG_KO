@@ -301,3 +301,26 @@ p <- p+theme(axis.text.x=element_text(size=10,colour = "black"),
 
 print(p)
 dev.off()
+
+
+pdf(file=paste0("4MMR_TtoA_AnTn_odds2",".pdf"), onefile=TRUE,height=3,width=5, useDingbats=FALSE)
+p <- ggplot(c, aes(x=flag, y=mean, fill=Ko_gene)) +
+  geom_bar(position=position_dodge(), stat="identity",width=0.8,alpha=0.5) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),color="black",position=position_dodge(.8),width=.1)+ geom_point(data=c_all,aes(x=flag, y=odds),position=position_jitterdodge(0.1))
+p <- p+scale_x_discrete(limits = c("AATT","AT","TTAA","TA"))
+p <- p+scale_y_continuous(trans='log10',breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))
+p <- p+theme(axis.text.x=element_text(size=10,colour = "black"),
+             axis.text.y=element_text(size=10,colour = "black"),
+             axis.title.x = element_text(size=15),
+             axis.title.y = element_text(size=15),
+             plot.title = element_text(size=10),
+             panel.grid.minor.x=element_blank(),
+             panel.grid.major.x=element_blank(),
+             panel.grid.major.y = element_blank(),
+             panel.grid.minor.y = element_blank(),
+             panel.background = element_rect(fill = "white"),
+             panel.border = element_rect(colour = "black", fill=NA))
+
+print(p)
+dev.off()
+
